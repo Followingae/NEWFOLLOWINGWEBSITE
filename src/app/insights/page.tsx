@@ -91,13 +91,20 @@ export default function InsightsPage() {
                     {/* Image placeholder — dark gradient */}
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <motion.div
-                        className="h-full w-full"
+                        className="flex h-full w-full items-center justify-center"
                         style={{
                           background: cardGradients[idx % cardGradients.length],
                         }}
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.5 }}
-                      />
+                      >
+                        <div className="text-center">
+                          <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
+                          </svg>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-white/30">ARTICLE THUMBNAIL</p>
+                        </div>
+                      </motion.div>
                       {/* Blur mask */}
                       <div
                         className="absolute inset-0"

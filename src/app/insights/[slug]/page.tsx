@@ -144,12 +144,19 @@ export default function ArticlePage() {
       <section className="px-4 md:px-8">
         <BlurFade inView>
           <div
-            className="mx-auto max-w-4xl overflow-hidden rounded-2xl"
+            className="relative mx-auto flex max-w-4xl items-center justify-center overflow-hidden rounded-2xl"
             style={{
               height: "clamp(200px, 35vh, 400px)",
               background: imgGrad,
             }}
-          />
+          >
+            <div className="text-center">
+              <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
+              </svg>
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/30">ARTICLE HERO IMAGE</p>
+            </div>
+          </div>
         </BlurFade>
       </section>
 
@@ -157,14 +164,30 @@ export default function ArticlePage() {
       <section className="py-section-mobile md:py-section">
         <Container className="max-w-3xl">
           {article.body.map((paragraph, i) => (
-            <BlurFade key={i} delay={i * 0.05} inView>
-              <p
-                className="mb-8 text-[clamp(16px,1.3vw,19px)] leading-[1.8]"
-                style={{ color: i === 0 ? "var(--text)" : "var(--muted)" }}
-              >
-                {paragraph}
-              </p>
-            </BlurFade>
+            <div key={i}>
+              <BlurFade delay={i * 0.05} inView>
+                <p
+                  className="mb-8 text-[clamp(16px,1.3vw,19px)] leading-[1.8]"
+                  style={{ color: i === 0 ? "var(--text)" : "var(--muted)" }}
+                >
+                  {paragraph}
+                </p>
+              </BlurFade>
+
+              {/* Inline visual after 2nd paragraph */}
+              {i === 1 && (
+                <BlurFade inView>
+                  <div className="relative my-10 flex aspect-[21/9] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #1b2838 0%, #171a21 50%, #1e2328 100%)" }}>
+                    <div className="text-center">
+                      <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
+                      </svg>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-white/30">INLINE VISUAL</p>
+                    </div>
+                  </div>
+                </BlurFade>
+              )}
+            </div>
           ))}
         </Container>
       </section>
