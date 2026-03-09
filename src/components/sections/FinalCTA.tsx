@@ -12,20 +12,36 @@ export function FinalCTA() {
   const cta = ctaContent[world];
 
   return (
-    <section className="py-section-mobile md:py-section">
-      <Container>
-        <div className="gradient-bar mb-16 md:mb-24" />
+    <section
+      className="relative overflow-hidden py-section-mobile md:py-section"
+      style={{
+        background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+      }}
+    >
+      {/* Subtle dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      <Container className="relative z-10">
         <BlurFade inView>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-            <h2 className="headline-1">
-              Ready to
-              <br />
-              launch?
+            <h2
+              className="headline-1"
+              style={{ whiteSpace: "pre-line", color: "#ffffff" }}
+            >
+              {cta.headline}
             </h2>
             <div className="md:text-right">
-              <p className="body-large mb-8 max-w-md md:ml-auto">
-                Tell us about your project. We&apos;ll build a plan around your goals,
-                timeline, and budget.
+              <p
+                className="mb-8 max-w-md text-[clamp(16px,1.4vw,20px)] leading-relaxed md:ml-auto"
+                style={{ color: "rgba(255,255,255,0.45)" }}
+              >
+                {cta.subline}
               </p>
               <MagneticButton className="md:ml-auto inline-block">
                 <Button href={cta.href} variant="primary" size="lg">

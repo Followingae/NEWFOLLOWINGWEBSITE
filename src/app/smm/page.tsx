@@ -49,62 +49,103 @@ export default function SMMPage() {
     <>
       <ServicePageHero
         kicker="SERVICES / SOCIAL MEDIA MANAGEMENT"
-        headline="Content systems, not random posting."
+        headline="Your feed isn't a brochure — it's a living brand"
       />
 
-      {/* Alternating split sections — editorial */}
+      {/* Alternating split sections — card-based */}
       <section className="py-section-mobile md:py-section">
         <Container>
-          {sections.map((section, i) => (
-            <BlurFade key={i} delay={i * 0.06} inView>
-              <div
-                className={`grid grid-cols-1 gap-8 border-t py-14 md:grid-cols-2 md:gap-20 md:py-20 ${
-                  i % 2 === 1 ? "md:direction-rtl" : ""
-                }`}
-                style={{ borderColor: "var(--border)" }}
-              >
-                <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <span
-                    className="text-[clamp(48px,6vw,80px)] font-bold leading-none"
-                    style={{ color: "var(--accent)", opacity: 0.2 }}
+          <div className="space-y-4">
+            {sections.map((section, i) => (
+              <BlurFade key={i} delay={i * 0.06} inView>
+                <div
+                  className="overflow-hidden rounded-xl"
+                  style={{
+                    backgroundColor: "var(--bg-alt)",
+                    border: "1px solid var(--border)",
+                  }}
+                >
+                  <div
+                    className={`grid grid-cols-1 gap-6 p-6 md:grid-cols-2 md:gap-12 md:p-10 ${
+                      i % 2 === 1 ? "md:direction-rtl" : ""
+                    }`}
                   >
-                    {section.number}
-                  </span>
-                  <h3 className="mt-4 text-2xl font-semibold md:text-3xl" style={{ color: "var(--text)" }}>
-                    {section.title}
-                  </h3>
+                    <div className={i % 2 === 1 ? "md:order-2" : ""}>
+                      <span
+                        className="flex h-14 w-14 items-center justify-center rounded-full text-lg font-bold"
+                        style={{
+                          backgroundColor: "rgba(var(--accent-rgb, 99,102,241), 0.08)",
+                          color: "var(--accent)",
+                        }}
+                      >
+                        {section.number}
+                      </span>
+                      <h3
+                        className="mt-5 text-xl font-semibold md:text-2xl"
+                        style={{ color: "var(--text)" }}
+                      >
+                        {section.title}
+                      </h3>
+                    </div>
+                    <div className={`self-center ${i % 2 === 1 ? "md:order-1" : ""}`}>
+                      <p className="body-large">{section.description}</p>
+                      <p
+                        className="mt-3 rounded-lg px-4 py-2 text-sm font-medium"
+                        style={{
+                          color: "var(--accent)",
+                          backgroundColor: "rgba(var(--accent-rgb, 99,102,241), 0.06)",
+                        }}
+                      >
+                        {section.detail}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className={`self-center ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  <p className="body-large">{section.description}</p>
-                  <p className="mt-4 text-sm font-medium" style={{ color: "var(--accent)" }}>
-                    {section.detail}
-                  </p>
-                </div>
-              </div>
-            </BlurFade>
-          ))}
-          <div className="border-t" style={{ borderColor: "var(--border)" }} />
+              </BlurFade>
+            ))}
+          </div>
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-section-mobile md:py-section">
-        <Container>
-          <div className="gradient-bar mb-16 md:mb-24" />
+      {/* CTA — dark */}
+      <section
+        className="relative overflow-hidden py-section-mobile md:py-section"
+        style={{
+          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+        }}
+      >
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <Container className="relative z-10">
           <BlurFade inView>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-              <h2 className="headline-1">
-                Plan my
-                <br />
-                month.
+              <h2
+                style={{
+                  fontSize: "clamp(32px, 4.5vw, 56px)",
+                  fontWeight: 700,
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.03em",
+                  color: "#ffffff",
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {"Ready to own\nyour feed?"}
               </h2>
               <div className="md:text-right">
-                <p className="body-large mb-8 max-w-md md:ml-auto">
-                  Ready for a content system that actually builds your brand?
+                <p
+                  className="mb-8 max-w-md text-[clamp(16px,1.4vw,20px)] leading-relaxed md:ml-auto"
+                  style={{ color: "rgba(255,255,255,0.45)" }}
+                >
+                  A content system that builds your brand — not just fills your calendar.
                 </p>
                 <MagneticButton className="md:ml-auto inline-block">
                   <Button href="/contact" variant="primary" size="lg">
-                    Get Started
+                    Let&apos;s Be Unreasonable
                   </Button>
                 </MagneticButton>
               </div>

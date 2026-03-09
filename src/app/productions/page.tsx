@@ -56,17 +56,17 @@ export default function ProductionsPage() {
     <>
       <ServicePageHero
         kicker="SERVICES / PRODUCTIONS"
-        headline="Production designed for social."
+        headline="We don't shoot content — we craft evidence"
       />
 
-      {/* Production types — accordion list */}
+      {/* Production types — rounded accordion cards */}
       <section className="py-section-mobile md:py-section">
         <Container>
           <BlurFade inView>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-end">
               <div>
                 <p className="kicker mb-4">PRODUCTION TYPES</p>
-                <h2 className="headline-2">What we produce.</h2>
+                <h2 className="headline-2">What we produce</h2>
               </div>
               <p className="body-large md:text-right">
                 Seven production capabilities designed for social-first output.
@@ -74,20 +74,38 @@ export default function ProductionsPage() {
             </div>
           </BlurFade>
 
-          <div className="mt-16 md:mt-24">
-            <div className="border-t" style={{ borderColor: "var(--border)" }} />
+          <div className="mt-16 space-y-3 md:mt-24">
             {productionTypes.map((type, i) => (
               <BlurFade key={i} delay={i * 0.04} inView>
-                <div className="border-b" style={{ borderColor: "var(--border)" }}>
+                <div
+                  className="overflow-hidden rounded-xl transition-all duration-300"
+                  style={{
+                    backgroundColor:
+                      expanded === i
+                        ? "rgba(var(--accent-rgb, 99,102,241), 0.04)"
+                        : "var(--bg-alt)",
+                    border: `1px solid ${expanded === i ? "rgba(var(--accent-rgb, 99,102,241), 0.12)" : "var(--border)"}`,
+                  }}
+                >
                   <button
-                    className="group flex w-full items-center justify-between py-8 text-left md:py-10"
+                    className="group flex w-full items-center justify-between px-6 py-6 text-left md:px-8 md:py-8"
                     onClick={() => setExpanded(expanded === i ? null : i)}
                     aria-expanded={expanded === i}
                   >
-                    <div className="flex items-center gap-6 md:gap-10">
+                    <div className="flex items-center gap-5 md:gap-8">
                       <span
-                        className="text-sm font-bold tabular-nums"
-                        style={{ color: "var(--muted)" }}
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold"
+                        style={{
+                          backgroundColor:
+                            expanded === i
+                              ? "var(--accent)"
+                              : "rgba(var(--accent-rgb, 99,102,241), 0.08)",
+                          color:
+                            expanded === i
+                              ? "var(--accent-text)"
+                              : "var(--accent)",
+                          transition: "all 0.3s ease",
+                        }}
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>
@@ -117,7 +135,7 @@ export default function ProductionsPage() {
                         transition={{ height: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }, opacity: { duration: 0.3 } }}
                         className="overflow-hidden"
                       >
-                        <p className="body-text max-w-2xl pb-8 pl-14 md:pl-16">
+                        <p className="body-text max-w-2xl px-6 pb-6 pl-[4.25rem] md:px-8 md:pb-8 md:pl-[5.25rem]">
                           {type.description}
                         </p>
                       </motion.div>
@@ -130,14 +148,21 @@ export default function ProductionsPage() {
         </Container>
       </section>
 
-      {/* Formats — marquee */}
+      {/* Formats — dark marquee band */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: "var(--bg-alt)" }}
+        style={{
+          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+        }}
       >
         <Container>
           <BlurFade inView>
-            <p className="kicker mb-2">DELIVERABLE FORMATS</p>
+            <p
+              className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em]"
+              style={{ color: "rgba(255,255,255,0.3)" }}
+            >
+              DELIVERABLE FORMATS
+            </p>
           </BlurFade>
         </Container>
         <div className="mt-8">
@@ -145,8 +170,7 @@ export default function ProductionsPage() {
             {formats.map((f) => (
               <span
                 key={f}
-                className="whitespace-nowrap px-8 text-[clamp(24px,3vw,40px)] font-semibold"
-                style={{ color: "var(--text)", opacity: 0.15 }}
+                className="whitespace-nowrap px-8 text-[clamp(24px,3vw,40px)] font-semibold text-white/15"
               >
                 {f}
               </span>
@@ -155,24 +179,45 @@ export default function ProductionsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-section-mobile md:py-section">
-        <Container>
-          <div className="gradient-bar mb-16 md:mb-24" />
+      {/* CTA — dark */}
+      <section
+        className="relative overflow-hidden py-section-mobile md:py-section"
+        style={{
+          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+        }}
+      >
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <Container className="relative z-10">
           <BlurFade inView>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-              <h2 className="headline-1">
-                Request a
-                <br />
-                shoot.
+              <h2
+                style={{
+                  fontSize: "clamp(32px, 4.5vw, 56px)",
+                  fontWeight: 700,
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.03em",
+                  color: "#ffffff",
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {"Ready to create\nevidence?"}
               </h2>
               <div className="md:text-right">
-                <p className="body-large mb-8 max-w-md md:ml-auto">
-                  From concept to delivery — social-first production with structure.
+                <p
+                  className="mb-8 max-w-md text-[clamp(16px,1.4vw,20px)] leading-relaxed md:ml-auto"
+                  style={{ color: "rgba(255,255,255,0.45)" }}
+                >
+                  From concept to delivery — content that proves what your brand believes.
                 </p>
                 <MagneticButton className="md:ml-auto inline-block">
                   <Button href="/contact" variant="primary" size="lg">
-                    Get Started
+                    Start Something Bold
                   </Button>
                 </MagneticButton>
               </div>

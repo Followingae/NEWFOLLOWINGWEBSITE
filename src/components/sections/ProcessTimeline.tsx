@@ -15,38 +15,53 @@ export function ProcessTimeline() {
         <BlurFade inView>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-end">
             <div>
-              <p className="kicker mb-4">OUR PROCESS</p>
-              <h2 className="headline-2">Five steps. Every time.</h2>
+              <p className="kicker mb-4">HOW MOVEMENTS BEGIN</p>
+              <h2 className="headline-2">Five steps, every time</h2>
             </div>
             <p className="body-large md:text-right">
-              A systematic approach that scales across every campaign and production.
+              A systematic approach that scales across every campaign and
+              production. No shortcuts. No surprises.
             </p>
           </div>
         </BlurFade>
 
-        <div className="mt-16 md:mt-24">
-          <div className="border-t" style={{ borderColor: "var(--border)" }} />
+        <div className="mt-16 space-y-3 md:mt-24">
           {processSteps.map((step, i) => (
             <BlurFade key={i} delay={i * 0.06} inView>
-              <div className="border-b" style={{ borderColor: "var(--border)" }}>
+              <div
+                className="overflow-hidden rounded-xl transition-all duration-300"
+                style={{
+                  backgroundColor:
+                    expanded === i
+                      ? "rgba(var(--accent-rgb, 99,102,241), 0.04)"
+                      : "var(--bg-alt)",
+                  border: `1px solid ${expanded === i ? "rgba(var(--accent-rgb, 99,102,241), 0.12)" : "var(--border)"}`,
+                }}
+              >
                 <button
-                  className="group flex w-full items-center justify-between py-8 text-left md:py-10"
+                  className="group flex w-full items-center justify-between px-6 py-6 text-left md:px-8 md:py-8"
                   onClick={() => setExpanded(expanded === i ? null : i)}
                   aria-expanded={expanded === i}
                 >
-                  <div className="flex items-center gap-6 md:gap-10">
+                  <div className="flex items-center gap-5 md:gap-8">
                     <span
-                      className="text-3xl font-bold tabular-nums md:text-4xl"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold md:h-14 md:w-14 md:text-base"
                       style={{
-                        color: expanded === i ? "var(--accent)" : "var(--muted)",
-                        opacity: expanded === i ? 1 : 0.4,
+                        backgroundColor:
+                          expanded === i
+                            ? "var(--accent)"
+                            : "rgba(var(--accent-rgb, 99,102,241), 0.08)",
+                        color:
+                          expanded === i
+                            ? "var(--accent-text)"
+                            : "var(--accent)",
                         transition: "all 0.3s ease",
                       }}
                     >
                       {step.number}
                     </span>
                     <h3
-                      className="text-xl font-semibold md:text-2xl"
+                      className="text-lg font-semibold md:text-xl"
                       style={{ color: "var(--text)" }}
                     >
                       {step.title}
@@ -81,23 +96,26 @@ export function ProcessTimeline() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{
-                        height: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                        height: {
+                          duration: 0.4,
+                          ease: [0.16, 1, 0.3, 1],
+                        },
                         opacity: { duration: 0.3 },
                       }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-8 pl-16 md:pl-20">
+                      <div className="px-6 pb-6 pl-[4.5rem] md:px-8 md:pb-8 md:pl-[5.5rem]">
                         <p className="body-text mb-6 max-w-2xl">
                           {step.description}
                         </p>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2">
                           {step.details.map((detail) => (
                             <span
                               key={detail}
-                              className="px-4 py-2 text-xs font-semibold uppercase tracking-wider"
+                              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider"
                               style={{
-                                backgroundColor: "var(--bg-alt)",
-                                border: "1px solid var(--border)",
+                                backgroundColor: "rgba(var(--accent-rgb, 99,102,241), 0.06)",
+                                border: "1px solid rgba(var(--accent-rgb, 99,102,241), 0.1)",
                                 color: "var(--muted)",
                               }}
                             >

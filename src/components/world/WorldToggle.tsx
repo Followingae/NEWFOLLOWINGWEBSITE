@@ -9,15 +9,24 @@ export function WorldToggle() {
   return (
     <button
       onClick={toggleWorld}
-      className="relative flex h-8 items-center gap-1 rounded-full border px-1"
+      className="relative flex h-9 items-center rounded-full transition-colors duration-500"
       style={{
-        borderColor: "var(--border)",
         backgroundColor: "var(--surface)",
+        border: "1px solid var(--border)",
       }}
-      aria-label={`Switch to ${world === "influencer" ? "Productions" : "Influencer Marketing"} mode`}
+      aria-label={`Switch to ${world === "influencer" ? "Productions" : "Influencer"} mode`}
     >
+      <motion.div
+        className="absolute inset-y-[3px] rounded-full"
+        style={{ backgroundColor: "var(--accent)" }}
+        animate={{
+          left: world === "influencer" ? "3px" : "calc(50%)",
+          right: world === "influencer" ? "calc(50%)" : "3px",
+        }}
+        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+      />
       <span
-        className="relative z-10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider transition-colors duration-300"
+        className="relative z-10 px-4 py-1.5 text-[11px] font-semibold tracking-wide transition-colors duration-300"
         style={{
           color:
             world === "influencer"
@@ -25,10 +34,10 @@ export function WorldToggle() {
               : "var(--muted)",
         }}
       >
-        IM
+        Influencer
       </span>
       <span
-        className="relative z-10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider transition-colors duration-300"
+        className="relative z-10 px-4 py-1.5 text-[11px] font-semibold tracking-wide transition-colors duration-300"
         style={{
           color:
             world === "production"
@@ -36,17 +45,8 @@ export function WorldToggle() {
               : "var(--muted)",
         }}
       >
-        Prod
+        Production
       </span>
-      <motion.div
-        className="absolute top-0.5 bottom-0.5 rounded-full"
-        style={{ backgroundColor: "var(--accent)" }}
-        animate={{
-          left: world === "influencer" ? "2px" : "50%",
-          width: world === "influencer" ? "calc(50% - 2px)" : "calc(50% - 2px)",
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      />
     </button>
   );
 }

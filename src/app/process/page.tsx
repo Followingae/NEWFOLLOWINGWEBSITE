@@ -9,8 +9,8 @@ export default function ProcessPage() {
     <>
       <ServicePageHero
         kicker="FOLLOWING / PROCESS"
-        headline="Built around structure."
-        subline="Every project follows the same systematic approach — from strategy to reporting."
+        headline="How movements begin"
+        subline="Every project follows the same five-step approach. Listen, discover, ignite, amplify, prove. No shortcuts."
       />
       <ProcessTimeline />
       <FinalCTA />

@@ -14,7 +14,7 @@ export function FilterChips({ options, active, onSelect }: FilterChipsProps) {
     <div className="flex flex-wrap gap-2">
       <button
         onClick={() => onSelect(null)}
-        className="relative px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200"
+        className="relative overflow-hidden rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200"
         style={{
           backgroundColor: active === null ? "var(--text)" : "transparent",
           border: `1px solid ${active === null ? "var(--text)" : "var(--border)"}`,
@@ -23,7 +23,7 @@ export function FilterChips({ options, active, onSelect }: FilterChipsProps) {
       >
         {active === null && (
           <motion.div
-            className="absolute inset-0"
+            className="absolute inset-0 rounded-full"
             style={{ backgroundColor: "var(--text)" }}
             layoutId="filter-bg"
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -35,7 +35,7 @@ export function FilterChips({ options, active, onSelect }: FilterChipsProps) {
         <button
           key={tag}
           onClick={() => onSelect(tag)}
-          className="relative px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200"
+          className="relative overflow-hidden rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200"
           style={{
             backgroundColor: active === tag ? "var(--text)" : "transparent",
             border: `1px solid ${active === tag ? "var(--text)" : "var(--border)"}`,
@@ -44,7 +44,7 @@ export function FilterChips({ options, active, onSelect }: FilterChipsProps) {
         >
           {active === tag && (
             <motion.div
-              className="absolute inset-0"
+              className="absolute inset-0 rounded-full"
               style={{ backgroundColor: "var(--text)" }}
               layoutId="filter-bg"
               transition={{ type: "spring", stiffness: 300, damping: 30 }}

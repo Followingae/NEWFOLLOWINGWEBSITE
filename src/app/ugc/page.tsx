@@ -38,25 +38,28 @@ export default function UGCPage() {
     <>
       <ServicePageHero
         kicker="SERVICES / UGC"
-        headline="UGC at scale. Directed professionally."
+        headline="Real people, real proof — manufactured authenticity is dead"
       />
 
-      {/* 2x2 Grid — OMC bento-style */}
+      {/* 2x2 Grid — glass-morphism bento */}
       <section className="py-section-mobile md:py-section">
         <Container>
-          <div
-            className="grid grid-cols-1 gap-px md:grid-cols-2"
-            style={{ backgroundColor: "var(--border)" }}
-          >
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {sections.map((section, i) => (
               <BlurFade key={i} delay={i * 0.08} inView>
                 <div
-                  className="p-8 md:p-14"
-                  style={{ backgroundColor: i % 2 === 0 ? "var(--bg)" : "var(--bg-alt)" }}
+                  className="rounded-xl p-8 md:p-12"
+                  style={{
+                    backgroundColor: "var(--bg-alt)",
+                    border: "1px solid var(--border)",
+                  }}
                 >
                   <span
-                    className="text-[clamp(48px,5vw,72px)] font-bold leading-none"
-                    style={{ color: "var(--accent)", opacity: 0.15 }}
+                    className="flex h-14 w-14 items-center justify-center rounded-full text-lg font-bold"
+                    style={{
+                      backgroundColor: "rgba(var(--accent-rgb, 99,102,241), 0.08)",
+                      color: "var(--accent)",
+                    }}
                   >
                     {section.number}
                   </span>
@@ -74,13 +77,15 @@ export default function UGCPage() {
         </Container>
       </section>
 
-      {/* Stats band */}
+      {/* Stats band — dark cinematic */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: "#0b0b0d" }}
+        style={{
+          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+        }}
       >
         <Container>
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-0 md:divide-x md:divide-white/10">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {[
               { stat: "120+", label: "Assets per sprint" },
               { stat: "40%", label: "Lower CPA" },
@@ -88,11 +93,17 @@ export default function UGCPage() {
               { stat: "18+", label: "Creators per project" },
             ].map((item, i) => (
               <BlurFade key={i} delay={i * 0.1} inView>
-                <div className="text-center md:px-8">
-                  <p className="text-[clamp(32px,4vw,48px)] font-bold text-white">
+                <div
+                  className="rounded-xl p-6 text-center md:p-8"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.03)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                  }}
+                >
+                  <p className="text-[clamp(28px,4vw,44px)] font-bold text-white">
                     {item.stat}
                   </p>
-                  <p className="mt-2 text-xs uppercase tracking-widest text-white/40">
+                  <p className="mt-2 text-[10px] uppercase tracking-widest text-white/40">
                     {item.label}
                   </p>
                 </div>
@@ -102,24 +113,45 @@ export default function UGCPage() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="py-section-mobile md:py-section">
-        <Container>
-          <div className="gradient-bar mb-16 md:mb-24" />
+      {/* CTA — dark */}
+      <section
+        className="relative overflow-hidden py-section-mobile md:py-section"
+        style={{
+          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+        }}
+      >
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <Container className="relative z-10">
           <BlurFade inView>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-              <h2 className="headline-1">
-                Request UGC
-                <br />
-                package.
+              <h2
+                style={{
+                  fontSize: "clamp(32px, 4.5vw, 56px)",
+                  fontWeight: 700,
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.03em",
+                  color: "#ffffff",
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {"Need proof\nat scale?"}
               </h2>
               <div className="md:text-right">
-                <p className="body-large mb-8 max-w-md md:ml-auto">
-                  Need high-performing creator content at volume? Let&apos;s talk.
+                <p
+                  className="mb-8 max-w-md text-[clamp(16px,1.4vw,20px)] leading-relaxed md:ml-auto"
+                  style={{ color: "rgba(255,255,255,0.45)" }}
+                >
+                  Creator content that converts — not just content that exists.
                 </p>
                 <MagneticButton className="md:ml-auto inline-block">
                   <Button href="/contact" variant="primary" size="lg">
-                    Get Started
+                    Let&apos;s Be Unreasonable
                   </Button>
                 </MagneticButton>
               </div>

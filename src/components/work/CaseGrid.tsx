@@ -19,10 +19,10 @@ export function CaseGrid() {
     <section className="py-section-mobile md:py-section">
       <Container>
         <BlurFade inView>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-end mb-12 md:mb-16">
+          <div className="mb-12 grid grid-cols-1 gap-6 md:mb-16 md:grid-cols-2 md:items-end">
             <div>
-              <p className="kicker mb-4">WORK</p>
-              <h2 className="headline-2">Selected projects.</h2>
+              <p className="kicker mb-4">SELECTED PROJECTS</p>
+              <h2 className="headline-3">The work speaks for itself</h2>
             </div>
             <div className="md:flex md:justify-end">
               <FilterChips
@@ -34,10 +34,8 @@ export function CaseGrid() {
           </div>
         </BlurFade>
 
-        <motion.div
-          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-          layout
-        >
+        {/* Masonry grid */}
+        <motion.div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" layout>
           <AnimatePresence mode="popLayout">
             {filtered.map((study) => (
               <motion.div

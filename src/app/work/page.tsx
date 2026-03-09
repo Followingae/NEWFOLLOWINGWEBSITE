@@ -8,8 +8,8 @@ export default function WorkPage() {
     <>
       <ServicePageHero
         kicker="FOLLOWING / WORK"
-        headline="Selected projects."
-        subline="A curated look at campaigns, shoots, and content systems we've delivered."
+        headline="Work that moves people"
+        subline="Campaigns, shoots, and content systems that made brands the ones people talk about."
       />
       <CaseGrid />
     </>

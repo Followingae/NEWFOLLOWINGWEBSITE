@@ -224,7 +224,7 @@ export function ContactWizard() {
                 />
               </svg>
             </div>
-            <h2 className="headline-2">We&apos;ll be in touch.</h2>
+            <h2 className="headline-2">We&apos;ll be in touch</h2>
             <p className="body-text mx-auto mt-4 max-w-md">
               Thanks for reaching out. We&apos;ll review your brief and get
               back to you within 24 hours.
@@ -374,7 +374,7 @@ export function ContactWizard() {
                 {/* Step 5: Brand basics */}
                 {step === 5 && (
                   <div>
-                    <h2 className="headline-3 mb-6">Tell us about your brand.</h2>
+                    <h2 className="headline-3 mb-6">Tell us about your brand</h2>
                     <div className="flex flex-col gap-6">
                       <Input
                         label="Brand name"
@@ -395,7 +395,7 @@ export function ContactWizard() {
                 {/* Step 6: Contact */}
                 {step === 6 && (
                   <div>
-                    <h2 className="headline-3 mb-6">Your contact details.</h2>
+                    <h2 className="headline-3 mb-6">Your contact details</h2>
                     <div className="flex flex-col gap-6">
                       <Input
                         label="Full name"
@@ -436,7 +436,7 @@ export function ContactWizard() {
                 {/* Step 7: Review */}
                 {step === 7 && (
                   <div>
-                    <h2 className="headline-3 mb-6">Review your brief.</h2>
+                    <h2 className="headline-3 mb-6">Review your brief</h2>
                     <div className="flex flex-col">
                       {[
                         { label: "Objective", value: data.objective },
