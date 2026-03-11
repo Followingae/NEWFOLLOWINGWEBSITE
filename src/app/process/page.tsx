@@ -12,7 +12,7 @@ export default function ProcessPage() {
       <ServicePageHero
         kicker="FOLLOWING / PROCESS"
         headline="How movements begin"
-        subline="Every project follows the same five-step approach. Listen, discover, ignite, amplify, prove. No shortcuts."
+        subline="Every project follows the same five-step approach — listen, discover, ignite, amplify, prove"
       />
 
       {/* Behind the scenes — image placeholder */}

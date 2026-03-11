@@ -29,7 +29,7 @@ export default function InsightsPage() {
       <ServicePageHero
         kicker="FOLLOWING / INSIGHTS"
         headline="Thoughts worth stealing"
-        subline="Strategy, craft, and opinions from the team. No fluff. No filler."
+        subline="Strategy, craft, and opinions from the team — no fluff, no filler"
       />
 
       <section className="py-section-mobile md:py-section">

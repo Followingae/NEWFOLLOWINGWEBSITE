@@ -9,7 +9,7 @@ export default function WorkPage() {
       <ServicePageHero
         kicker="FOLLOWING / WORK"
         headline="Work that moves people"
-        subline="Campaigns, shoots, and content systems that made brands the ones people talk about."
+        subline="Campaigns, shoots, and content systems that made brands the ones people talk about"
       />
       <CaseGrid />
     </>

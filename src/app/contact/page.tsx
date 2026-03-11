@@ -74,7 +74,7 @@ export default function ContactPage() {
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           >
-            Let&apos;s be unreasonable.
+            Let&apos;s be unreasonable
           </motion.h1>
 
           <motion.p
