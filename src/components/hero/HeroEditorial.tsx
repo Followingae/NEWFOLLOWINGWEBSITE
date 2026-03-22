@@ -88,7 +88,7 @@ export function HeroEditorial() {
       />
 
       {/* ─── Content — centered ─── */}
-      <Container className="relative z-10 py-36 md:py-44">
+      <Container className="relative z-10 py-28 pt-32 md:py-44">
         <div className="mx-auto max-w-4xl text-center">
           {/* Kicker with waving UAE flag */}
           <motion.div
@@ -110,8 +110,7 @@ export function HeroEditorial() {
                   <span
                     className="block"
                     style={{
-                      fontSize: "clamp(32px, 7vw, 100px)",
-                      whiteSpace: "nowrap",
+                      fontSize: "clamp(36px, 7vw, 100px)",
                       lineHeight: 1.0,
                       letterSpacing: "-0.035em",
                       fontWeight: 700,
@@ -127,8 +126,7 @@ export function HeroEditorial() {
                   <motion.span
                     className="block"
                     style={{
-                      fontSize: "clamp(32px, 7vw, 100px)",
-                      whiteSpace: "nowrap",
+                      fontSize: "clamp(36px, 7vw, 100px)",
                       lineHeight: 1.0,
                       letterSpacing: "-0.035em",
                       fontWeight: 700,

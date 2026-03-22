@@ -82,6 +82,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     <motion.div
       ref={ref}
       data-nav-dark={isDark ? "true" : "false"}
+      data-nav-scrolled={visible ? "true" : "false"}
       className={cn("fixed inset-x-0 top-0 z-50 w-full pt-5", className)}
     >
       {React.Children.map(children, (child) =>
@@ -252,9 +253,9 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
 
 export const MobileNavToggle = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) =>
   isOpen ? (
-    <IconX className="h-5 w-5 text-black dark:text-white" onClick={onClick} />
+    <IconX className="nav-icon h-5 w-5" onClick={onClick} />
   ) : (
-    <IconMenu2 className="h-5 w-5 text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className="nav-icon h-5 w-5" onClick={onClick} />
   );
 
 export const NavbarButton = ({

@@ -66,7 +66,7 @@ export function NavBar() {
             <img
               src="/logo.svg"
               alt="Following"
-              className="h-8 w-auto dark:invert"
+              className="h-8 w-auto nav-logo transition-all duration-500"
             />
           </Link>
           <MobileNavToggle

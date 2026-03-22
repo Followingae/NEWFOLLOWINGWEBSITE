@@ -8,6 +8,13 @@ import { LenisWrapper } from "@/components/layout/LenisWrapper";
 import { WhatsAppButton } from "@/components/sections/WhatsAppButton";
 import { SchemaMarkup } from "@/components/seo/SchemaMarkup";
 
+export const viewport = {
+  themeColor: "#0a0a0a",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Following — Influencer Marketing Agency, UAE",

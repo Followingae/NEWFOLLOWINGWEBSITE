@@ -284,6 +284,13 @@ html.lenis, html.lenis body { height: auto; }
   filter: invert(0);
 }
 
+[data-nav-dark="true"] .nav-icon {
+  color: #ffffff;
+}
+[data-nav-dark="false"] .nav-icon {
+  color: #111111;
+}
+
 /* ─── Glass Button ─── */
 .glass-button-wrap {
   position: relative;
