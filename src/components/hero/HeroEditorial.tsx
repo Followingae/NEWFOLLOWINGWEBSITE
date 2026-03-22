@@ -1,14 +1,37 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import AnimatedGradientBackground from "@/components/ui/AnimatedGradientBackground";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { MagneticButton } from "@/components/ui/MagneticButton";
-import { WaveBackground } from "@/components/ui/WaveBackground";
+import { GlassButton } from "@/components/ui/glass-button";
+import { Marquee } from "@/components/ui/Marquee";
+import { clientLogos } from "@/content/site";
 import { useWorld } from "@/components/world/WorldProvider";
 import { heroContent } from "@/content/site";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
+
+/* Logo tooltip state */
+interface TooltipState {
+  name: string;
+  x: number;
+  y: number;
+}
+
+/* Line-by-line reveal — opacity + y shift, no overflow clip needed */
+const lineReveal = {
+  initial: { y: 40, opacity: 0, filter: "blur(8px)" },
+  enter: (i: number) => ({
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.85,
+      ease: [0.33, 1, 0.68, 1],
+      delay: 0.15 * i + 0.6,
+    },
+  }),
+};
 
 export function HeroEditorial() {
   const { world } = useWorld();
@@ -16,139 +39,191 @@ export function HeroEditorial() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const reduced = useReducedMotion();
+  const [tooltip, setTooltip] = useState<TooltipState | null>(null);
 
   return (
     <section
       ref={ref}
+      data-nav-theme="dark"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
-      style={{ backgroundColor: "var(--bg)" }}
+      style={
+        {
+          "--text": "#ffffff",
+          "--muted": "rgba(255,255,255,0.5)",
+          "--border": "rgba(255,255,255,0.15)",
+          "--bg": "#0a0a0a",
+        } as React.CSSProperties
+      }
     >
-      {/* Wave background — subtle on light */}
-      <WaveBackground
-        strokeColor={
-          world === "influencer"
-            ? "rgba(0,0,0,0.04)"
-            : "rgba(81,0,243,0.04)"
-        }
-        backgroundColor="transparent"
+      {/* ─── Animated gradient scene ─── */}
+      <AnimatedGradientBackground
+        Breathing={true}
+        startingGap={120}
+        breathingRange={8}
+        animationSpeed={0.03}
+        topOffset={20}
+        gradientColors={[
+          "#0A0A0A",
+          "#2979FF",
+          "#FF80AB",
+          "#FF6D00",
+          "#FFD600",
+          "#00E676",
+          "#3D5AFE",
+        ]}
+        gradientStops={[35, 50, 60, 70, 80, 90, 100]}
+        containerClassName="z-0"
       />
 
-      {/* Content — centered like Nimble */}
-      <Container className="relative z-10 py-32">
+      {/* Grain texture */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1]"
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
+          backgroundRepeat: "repeat",
+          backgroundSize: "180px",
+          opacity: 0.04,
+        }}
+      />
+
+      {/* ─── Content — centered ─── */}
+      <Container className="relative z-10 py-36 md:py-44">
         <div className="mx-auto max-w-4xl text-center">
-          {/* Kicker */}
-          <motion.p
-            className="mb-6 text-[11px] font-semibold uppercase tracking-[0.25em]"
-            style={{ color: "var(--muted)" }}
+          {/* Kicker with waving UAE flag */}
+          <motion.div
+            className="mb-6 flex items-center justify-center gap-2 text-[9px] font-medium uppercase tracking-[0.35em] md:mb-8"
+            style={{ color: "rgba(255,255,255,0.2)" }}
             initial={reduced ? {} : { opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            {content.kicker}
-          </motion.p>
+            <span>{content.kicker}</span>
+            <img src="https://flagcdn.com/w20/ae.png" alt="UAE" className="h-[9px] w-auto rounded-[1px] opacity-60" />
+          </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            style={{
-              fontSize: "clamp(40px, 7vw, 96px)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.035em",
-              fontWeight: 700,
-              color: "var(--text)",
-            }}
-            initial={reduced ? {} : { y: 30, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{
-              duration: 0.8,
-              ease: [0.16, 1, 0.3, 1],
-              delay: 0.2,
-            }}
-          >
+          {/* Headline — sans + serif mix, tight line spacing */}
+          <h1>
             {content.headline.map((line, i) => (
-              <span key={`${world}-${i}`}>
-                {line}
-                {i < content.headline.length - 1 && <br />}
-              </span>
+              <div key={`${world}-${i}`}>
+                {reduced ? (
+                  <span
+                    className="block"
+                    style={{
+                      fontSize: "clamp(32px, 7vw, 100px)",
+                      whiteSpace: "nowrap",
+                      lineHeight: 1.0,
+                      letterSpacing: "-0.035em",
+                      fontWeight: 700,
+                      color: "#ffffff",
+                      fontFamily:
+                        i === 1 ? "var(--font-serif)" : "var(--font-sans)",
+                      fontStyle: i === 1 ? "italic" : "normal",
+                    }}
+                  >
+                    {line}
+                  </span>
+                ) : (
+                  <motion.span
+                    className="block"
+                    style={{
+                      fontSize: "clamp(32px, 7vw, 100px)",
+                      whiteSpace: "nowrap",
+                      lineHeight: 1.0,
+                      letterSpacing: "-0.035em",
+                      fontWeight: 700,
+                      color: "#ffffff",
+                      fontFamily:
+                        i === 1 ? "var(--font-serif)" : "var(--font-sans)",
+                      fontStyle: i === 1 ? "italic" : "normal",
+                    }}
+                    custom={i}
+                    variants={lineReveal}
+                    initial="initial"
+                    animate={isInView ? "enter" : "initial"}
+                  >
+                    {line}
+                  </motion.span>
+                )}
+              </div>
             ))}
-          </motion.h1>
+          </h1>
 
           {/* Subline */}
           <motion.p
-            className="mx-auto mt-8 max-w-lg text-[clamp(15px,1.3vw,19px)] leading-relaxed"
-            style={{ color: "var(--muted)" }}
-            initial={reduced ? {} : { opacity: 0, y: 15 }}
+            className="mx-auto mt-6 max-w-md text-[clamp(15px,1.3vw,18px)] leading-relaxed md:mt-8"
+            style={{ color: "rgba(255,255,255,0.45)" }}
+            initial={reduced ? {} : { opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            key={`${world}-subline`}
+            transition={{ duration: 0.6, delay: 1.2 }}
           >
             {content.subline}
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            className="mt-10 flex flex-wrap items-center justify-center gap-4"
-            initial={reduced ? {} : { opacity: 0, y: 15 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            <MagneticButton>
-              <Button
-                href={content.ctaPrimary.href}
-                variant="primary"
-                size="lg"
-              >
-                {content.ctaPrimary.label}
-              </Button>
-            </MagneticButton>
-            <Button
-              href={content.ctaSecondary.href}
-              variant="secondary"
-              size="lg"
-            >
-              {content.ctaSecondary.label}
-            </Button>
-          </motion.div>
         </div>
       </Container>
 
-      {/* Scroll indicator */}
+      {/* Client logos — bottom of hero */}
       <motion.div
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-10 left-0 right-0 z-10 py-6"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8, duration: 0.6 }}
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        <div className="relative mx-auto max-w-3xl"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+          }}
         >
-          <svg width="20" height="30" viewBox="0 0 20 30" fill="none">
-            <rect
-              x="1"
-              y="1"
-              width="18"
-              height="28"
-              rx="9"
-              stroke="var(--muted)"
-              strokeWidth="1.5"
-              opacity="0.3"
-            />
-            <motion.circle
-              cx="10"
-              cy="10"
-              r="3"
-              fill="var(--muted)"
-              opacity="0.4"
-              animate={{ cy: [8, 16, 8] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </svg>
-        </motion.div>
+          <Marquee pauseOnHover speed={6}>
+            {clientLogos.map((brand) => (
+              <div
+                key={brand.name}
+                className="mx-8 flex items-center py-4"
+                onMouseEnter={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setTooltip({
+                    name: brand.name,
+                    x: rect.left + rect.width / 2,
+                    y: rect.top - 8,
+                  });
+                }}
+                onMouseLeave={() => setTooltip(null)}
+              >
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  style={{ height: brand.height }}
+                  className="w-auto object-contain brightness-0 invert opacity-25 transition-all duration-500 hover:brightness-100 hover:invert-0 hover:opacity-90"
+                />
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </motion.div>
+
+      {/* Fixed tooltip — renders outside marquee overflow */}
+      <AnimatePresence>
+        {tooltip && (
+          <motion.div
+            className="pointer-events-none fixed z-50 rounded-full bg-white/10 px-3 py-1 backdrop-blur-md"
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
+            transition={{ duration: 0.15 }}
+            style={{
+              left: tooltip.x,
+              top: tooltip.y,
+              transform: "translate(-50%, -100%)",
+            }}
+          >
+            <span className="text-[10px] font-medium tracking-wide text-white/70">
+              {tooltip.name}
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

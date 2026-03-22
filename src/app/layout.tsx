@@ -10,24 +10,31 @@ import { SchemaMarkup } from "@/components/seo/SchemaMarkup";
 
 export const metadata: Metadata = {
   title: {
-    default: "Following — We Turn Creators Into Culture",
+    default: "Following — Influencer Marketing Agency, UAE",
     template: "%s | Following",
   },
   description:
-    "End-to-end influencer marketing and production for brands that refuse to blend in. Strategy, sourcing, execution, reporting.",
+    "End-to-end influencer marketing and production. Strategy, creators, content, reporting — all managed, all tracked.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://following.ae"),
   openGraph: {
-    title: "Following — We Turn Creators Into Culture",
+    title: "Following — Influencer Marketing Agency, UAE",
     description:
-      "End-to-end influencer marketing and production for brands that refuse to blend in.",
+      "End-to-end influencer marketing and production. Strategy, creators, content, reporting.",
     type: "website",
     locale: "en_US",
     siteName: "Following",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Following — We Turn Creators Into Culture",
+    title: "Following — Influencer Marketing Agency, UAE",
     description:
-      "End-to-end influencer marketing and production for brands that refuse to blend in.",
+      "End-to-end influencer marketing and production. Strategy, creators, content, reporting.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,
@@ -50,7 +57,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
           rel="stylesheet"
         />
         <SchemaMarkup />

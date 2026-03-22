@@ -26,7 +26,7 @@ export function ExpertCard({
     <section
       className="py-16 md:py-24"
       style={{
-        background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+        background: "linear-gradient(160deg, #0b0b0d 0%, #141418 40%, #0b0b0d 100%)",
       }}
     >
       <Container>

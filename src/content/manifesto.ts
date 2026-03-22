@@ -17,24 +17,24 @@ export const manifestoBlocks: ManifestoBlock[] = [
     body: "Chaos doesn't scale. We built systems that let creativity breathe — clear briefs, tight timelines, approval flows that don't kill momentum. The best work happens inside a framework.",
   },
   {
-    headline: "Content should be unreasonable",
-    body: "Safe content is invisible content. We push for work that's bold enough to polarize, sharp enough to convert, and real enough to share. If it doesn't make you slightly uncomfortable, it's not done.",
+    headline: "Safe content gets ignored",
+    body: "We push for work that earns attention and drives action. If it looks like everything else in the feed, we start over.",
   },
   {
-    headline: "Results are the only currency that matters",
-    body: "Awards are decoration. We measure success in engagement rates, conversion lifts, and brands that become part of culture. Everything else is noise.",
+    headline: "We measure everything",
+    body: "Engagement rates, conversion lifts, and repeat bookings. That's how we know it worked.",
   },
   {
-    headline: "Nothing is impossible — seriously",
-    body: "Three-week turnaround on 120 assets? A campaign that outperforms the brand's entire Q3? A creator strategy that makes a legacy brand relevant to Gen Z? We've done all of it. And we'll do it again.",
+    headline: "We've done things other agencies said couldn't be done",
+    body: "Three-week turnaround on 120 assets. A campaign that outperformed the brand's entire Q3. A creator strategy that made a legacy brand relevant to Gen Z. All real, all repeatable.",
   },
 ];
 
 export const manifestoHero = {
-  kicker: "FOLLOWING / MANIFESTO",
-  headline: "We don't follow",
+  kicker: "MANIFESTO",
+  headline: "What we believe",
   subline:
-    "This is what we believe. Not a mission statement written by committee — a standard we hold ourselves to every single day.",
+    "This is how we work. No committee, no fluff.",
 };
 
 export const manifestoStats = {

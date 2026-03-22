@@ -5,7 +5,6 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { BlurFade } from "@/components/ui/BlurFade";
 import { Button } from "@/components/ui/Button";
-import { MagneticButton } from "@/components/ui/MagneticButton";
 import { Accordion } from "@/components/sections/Accordion";
 import { jobListings, coreValues, careersFaq } from "@/content/careers";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -34,7 +33,7 @@ export default function CareersPage() {
           style={{
             y: reduced ? 0 : bgY,
             background:
-              "linear-gradient(160deg, #0a0a0c 0%, #111128 35%, #0d0d1a 65%, #0a0a0c 100%)",
+              "linear-gradient(160deg, #0a0a0c 0%, #141418 35%, #0d0d1a 65%, #0a0a0c 100%)",
           }}
         />
 
@@ -62,7 +61,7 @@ export default function CareersPage() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            FOLLOWING / CAREERS
+            CAREERS
           </motion.p>
 
           <motion.h1
@@ -78,7 +77,7 @@ export default function CareersPage() {
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           >
-            We&apos;re building a team of unreasonable people.
+            We&apos;re hiring people who do the work others won&apos;t
           </motion.h1>
 
           <motion.p
@@ -100,29 +99,14 @@ export default function CareersPage() {
         <Container>
           <BlurFade inView>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" }}>
-                <div className="text-center">
-                  <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                  </svg>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">TEAM EVENT</p>
-                </div>
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+                <img src="/images/red-ensemble.png" alt="Team event" className="h-full w-full object-cover" />
               </div>
-              <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #2d1b69 0%, #11001c 50%, #200040 100%)" }}>
-                <div className="text-center">
-                  <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                  </svg>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">OFFICE CULTURE</p>
-                </div>
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+                <img src="/images/production/bts.png" alt="Office culture" className="h-full w-full object-cover" />
               </div>
-              <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #0d1117 0%, #1a1e24 50%, #2a2e34 100%)" }}>
-                <div className="text-center">
-                  <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                  </svg>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">TEAM TRIP</p>
-                </div>
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+                <img src="/images/production/event.png" alt="Team" className="h-full w-full object-cover" />
               </div>
             </div>
           </BlurFade>
@@ -223,13 +207,8 @@ export default function CareersPage() {
           </BlurFade>
 
           <BlurFade inView>
-            <div className="relative mb-12 flex aspect-[21/9] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #1b2838 0%, #171a21 50%, #1e2328 100%)" }}>
-              <div className="text-center">
-                <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                </svg>
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/30">OUR VALUES IN ACTION</p>
-              </div>
+            <div className="relative mb-12 aspect-[21/9] overflow-hidden rounded-xl">
+              <img src="/images/red-portrait.png" alt="Our values" className="h-full w-full object-cover" />
             </div>
           </BlurFade>
 
@@ -274,53 +253,6 @@ export default function CareersPage() {
         </Container>
       </section>
 
-      {/* CTA — dark */}
-      <section
-        className="relative overflow-hidden py-section-mobile md:py-section"
-        style={{
-          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <Container className="relative z-10">
-          <BlurFade inView>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-              <h2
-                style={{
-                  fontSize: "clamp(32px, 4.5vw, 56px)",
-                  fontWeight: 700,
-                  lineHeight: 1.1,
-                  letterSpacing: "-0.03em",
-                  color: "#ffffff",
-                  whiteSpace: "pre-line",
-                }}
-              >
-                {"No role fits?\nTalk to us anyway."}
-              </h2>
-              <div className="md:text-right">
-                <p
-                  className="mb-8 max-w-md text-[clamp(16px,1.4vw,20px)] leading-relaxed md:ml-auto"
-                  style={{ color: "rgba(255,255,255,0.45)" }}
-                >
-                  We&apos;re always looking for ambitious people. If you think
-                  you&apos;d be a fit, we want to hear from you.
-                </p>
-                <MagneticButton className="md:ml-auto inline-block">
-                  <Button href="/contact" variant="primary" size="lg">
-                    Get in Touch
-                  </Button>
-                </MagneticButton>
-              </div>
-            </div>
-          </BlurFade>
-        </Container>
-      </section>
     </>
   );
 }

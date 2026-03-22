@@ -61,19 +61,19 @@ export interface HeroContent {
 
 export const heroContent: Record<World, HeroContent> = {
   influencer: {
-    kicker: "FOLLOWING / INFLUENCER MARKETING",
-    headline: ["We turn creators", "into culture"],
+    kicker: "INFLUENCER MARKETING EXPERTS",
+    headline: ["Influencer campaigns", "that actually sell"],
     subline:
-      "Every scroll is a chance to move someone — we make sure it does. Strategy, sourcing, execution, reporting — end-to-end",
-    ctaPrimary: { label: "Let's Be Unreasonable", href: "/contact" },
+      "Strategy, creators, content, reporting. All managed, all tracked, all in one platform",
+    ctaPrimary: { label: "Launch a Campaign", href: "/contact" },
     ctaSecondary: { label: "View Work", href: "/work" },
   },
   production: {
-    kicker: "FOLLOWING / PRODUCTIONS",
-    headline: ["We don't shoot content", "We craft evidence"],
+    kicker: "PRODUCTION EXPERTS",
+    headline: ["We shoot for the feed,", "not the boardroom"],
     subline:
-      "Evidence of what your brand believes — concept, shoot, edit, delivery — commercial quality built for social",
-    ctaPrimary: { label: "Start Something Bold", href: "/contact" },
+      "Concept, shoot, edit, delivery. Every asset built for performance.",
+    ctaPrimary: { label: "Launch a Campaign", href: "/contact" },
     ctaSecondary: { label: "View Reel", href: "/work" },
   },
 };
@@ -99,15 +99,15 @@ export interface SplitPanel {
 export const splitPanels: SplitPanel[] = [
   {
     stat: "End-to-end",
-    copy: "We manage campaigns from strategy to reporting — with the kind of structure that makes approvals effortless and results inevitable.",
+    copy: "We manage campaigns from strategy to reporting. Fast approvals, clear reporting, no gaps.",
   },
   {
     stat: "Fit-first matching",
-    copy: "We don't match creators by follower count. We match by belief, audience quality, and the kind of trust that turns posts into purchases.",
+    copy: "We match creators by audience quality and brand fit, not follower count. Better matches, better results.",
   },
   {
     stat: "Production-ready",
-    copy: "Content that looks like it belongs in a campaign because it was built for one. Frameworks that ensure every asset is usable for ads, organic, and everything in between.",
+    copy: "Every asset delivered in ad-ready and organic formats. Shot once, usable everywhere.",
   },
 ];
 
@@ -116,36 +116,41 @@ export interface ServiceCard {
   description: string;
   href: string;
   tag: string;
+  image: string;
 }
 
 export const servicesInfluencer: ServiceCard[] = [
   {
     title: "Influencer Marketing",
     description:
-      "Find the voices. Shape the story. Own the moment. Fully managed campaigns from brief to report.",
+      "Full-service influencer campaigns. Creator sourcing, briefing, production, publishing, and reporting.",
     href: "/influencer-marketing",
     tag: "Core",
+    image: "/images/influencer/spotlight.png",
   },
   {
     title: "UGC",
     description:
-      "Real people. Real proof. Directed creator content with performance-ready variants that fuel paid media.",
+      "Creator-made content, directed by us. Hook variants and cutdowns ready for Meta and TikTok ads.",
     href: "/ugc",
     tag: "Content",
+    image: "/images/ugc/face.png",
   },
   {
     title: "Productions",
     description:
-      "We don't shoot content. We craft evidence of what a brand believes. Social-first, commercially sharp.",
+      "Shoots planned for social, not the boardroom. Concept through delivery, all formats included.",
     href: "/productions",
     tag: "Production",
+    image: "/images/production/hero.png",
   },
   {
     title: "SMM",
     description:
-      "Your feed isn't a brochure. It's a living, breathing brand. Content systems that scale.",
+      "Monthly content, batch-produced, performance-tracked. We turn inconsistent feeds into growth engines.",
     href: "/smm",
     tag: "Management",
+    image: "/images/smm/fashion.png",
   },
 ];
 
@@ -153,30 +158,34 @@ export const servicesProduction: ServiceCard[] = [
   {
     title: "Productions",
     description:
-      "We don't shoot content. We craft evidence of what a brand believes. Social-first, commercially sharp.",
+      "Shoots planned for social, not the boardroom. Concept through delivery, all formats included.",
     href: "/productions",
     tag: "Core",
+    image: "/images/production/hero.png",
   },
   {
     title: "UGC",
     description:
-      "Real people. Real proof. Directed creator content with performance-ready variants that fuel paid media.",
+      "Creator-made content, directed by us. Hook variants and cutdowns ready for Meta and TikTok ads.",
     href: "/ugc",
     tag: "Content",
+    image: "/images/ugc/face.png",
   },
   {
     title: "SMM",
     description:
-      "Your feed isn't a brochure. It's a living, breathing brand. Content systems that scale.",
+      "Monthly content, batch-produced, performance-tracked. We turn inconsistent feeds into growth engines.",
     href: "/smm",
     tag: "Management",
+    image: "/images/smm/fashion.png",
   },
   {
     title: "Influencer Marketing",
     description:
-      "Find the voices. Shape the story. Own the moment. Fully managed campaigns from brief to report.",
+      "Full-service influencer campaigns. Creator sourcing, briefing, production, publishing, and reporting.",
     href: "/influencer-marketing",
     tag: "Campaigns",
+    image: "/images/influencer/spotlight.png",
   },
 ];
 
@@ -185,7 +194,7 @@ export const processSteps = [
     number: "01",
     title: "Listen & frame",
     description:
-      "Before we pitch anything, we listen. Goals, audience, platforms, creative direction — we align on everything before a single creator is contacted.",
+      "Goals, audience, platforms, creative direction — aligned before a single creator is contacted.",
     details: [
       "Campaign objective definition",
       "Audience & platform mapping",
@@ -197,7 +206,7 @@ export const processSteps = [
     number: "02",
     title: "Discover & match",
     description:
-      "Creator shortlists built for brand fit, audience quality, and campaign intent. Not follower counts — conviction.",
+      "Shortlists built for brand fit, audience quality, and campaign intent.",
     details: [
       "Creator sourcing & vetting",
       "Audience overlap analysis",
@@ -209,7 +218,7 @@ export const processSteps = [
     number: "03",
     title: "Ignite & brief",
     description:
-      "Clear creative briefs that give creators enough direction to stay on-brand and enough freedom to stay authentic.",
+      "Creative briefs with brand guidelines, format specs, and approval workflows.",
     details: [
       "Detailed creative briefs",
       "Brand guidelines integration",
@@ -221,7 +230,7 @@ export const processSteps = [
     number: "04",
     title: "Amplify & produce",
     description:
-      "Content is produced, reviewed, and published on schedule. Every asset is built for the platform it lives on.",
+      "Produced, reviewed, published on schedule. All formats included.",
     details: [
       "Content production oversight",
       "Quality control review",
@@ -233,7 +242,7 @@ export const processSteps = [
     number: "05",
     title: "Prove & iterate",
     description:
-      "Performance data drives the next round. We don't just report — we learn, adapt, and improve. Always.",
+      "Full reporting, clear learnings, actionable next steps.",
     details: [
       "Performance analytics",
       "ROI reporting",
@@ -248,28 +257,28 @@ export const ctaContent: Record<
   { headline: string; subline: string; label: string; href: string }
 > = {
   influencer: {
-    headline: "Let's make\nsomething\nunreasonable",
+    headline: "Let's build\nyour next\ncampaign",
     subline:
-      "Tell us about your project — we'll build a plan that makes your competitors nervous",
-    label: "Let's Be Unreasonable",
+      "Tell us about your brand. We'll come back with a plan, a creator shortlist, and a timeline.",
+    label: "Launch a Campaign",
     href: "/contact",
   },
   production: {
-    headline: "Ready to\ncreate\nevidence?",
+    headline: "Let's make\nsomething\nworth watching",
     subline:
-      "Tell us about your project. We'll build a plan that proves what your brand believes.",
-    label: "Start Something Bold",
+      "Tell us about your brand. We'll come back with a concept, a timeline, and a quote.",
+    label: "Launch a Campaign",
     href: "/contact",
   },
 };
 
 export const clientLogos = [
-  "Brand One",
-  "Brand Two",
-  "Brand Three",
-  "Brand Four",
-  "Brand Five",
-  "Brand Six",
-  "Brand Seven",
-  "Brand Eight",
+  { name: "Aseel", logo: "/images/brands/aseel.png", height: 28 },
+  { name: "Barakat", logo: "/images/brands/b.png", height: 22 },
+  { name: "CAFU", logo: "/images/brands/cafu.png", height: 16 },
+  { name: "Coca-Cola Arena", logo: "/images/brands/cca.png", height: 36 },
+  { name: "Dollar Car Rental", logo: "/images/brands/dcr.png", height: 26 },
+  { name: "Durance", logo: "/images/brands/durance.png", height: 18 },
+  { name: "R&B", logo: "/images/brands/rnb.png", height: 24 },
+  { name: "Sriracha", logo: "/images/brands/sri.png", height: 50 },
 ];

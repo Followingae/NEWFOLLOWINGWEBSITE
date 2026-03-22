@@ -1,135 +1,197 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 import { BlurFade } from "@/components/ui/BlurFade";
 import { processSteps } from "@/content/site";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  Compass,
+  Search,
+  EditPencil,
+  Megaphone,
+  StatsReport,
+} from "iconoir-react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const stepIcons = [Compass, Search, EditPencil, Megaphone, StatsReport];
 
 export function ProcessTimeline() {
-  const [expanded, setExpanded] = useState<number | null>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !lineRef.current) return;
+
+    const ctx = gsap.context(() => {
+      /* Animate the vertical progress line */
+      gsap.fromTo(
+        lineRef.current,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 60%",
+            end: "bottom 70%",
+            scrub: 0.5,
+          },
+        },
+      );
+
+      /* Animate each step card */
+      const cards = containerRef.current!.querySelectorAll("[data-step-card]");
+      cards.forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, x: i % 2 === 0 ? -40 : 40, scale: 0.95 },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+
+        /* Animate the dot on the line */
+        const dot = card.querySelector("[data-step-dot]");
+        if (dot) {
+          gsap.fromTo(
+            dot,
+            { scale: 0 },
+            {
+              scale: 1,
+              duration: 0.4,
+              ease: "back.out(2)",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 75%",
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+        }
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section className="py-section-mobile md:py-section">
       <Container>
         <BlurFade inView>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-end">
-            <div>
-              <p className="kicker mb-4">HOW MOVEMENTS BEGIN</p>
-              <h2 className="headline-2">Five steps, every time</h2>
-            </div>
-            <p className="body-large md:text-right">
-              A systematic approach that scales across every campaign and
-              production. No shortcuts. No surprises.
-            </p>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="kicker mb-4">OUR PROCESS</p>
+            <h2 className="headline-2">
+              <span style={{ fontFamily: "var(--font-sans)" }}>Five steps. </span>
+              <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+                Every time.
+              </span>
+            </h2>
           </div>
         </BlurFade>
 
-        <div className="mt-16 space-y-3 md:mt-24">
-          {processSteps.map((step, i) => (
-            <BlurFade key={i} delay={i * 0.06} inView>
-              <div
-                className="overflow-hidden rounded-xl transition-all duration-300"
-                style={{
-                  backgroundColor:
-                    expanded === i
-                      ? "rgba(var(--accent-rgb, 99,102,241), 0.04)"
-                      : "var(--bg-alt)",
-                  border: `1px solid ${expanded === i ? "rgba(var(--accent-rgb, 99,102,241), 0.12)" : "var(--border)"}`,
-                }}
-              >
-                <button
-                  className="group flex w-full items-center justify-between px-6 py-6 text-left md:px-8 md:py-8"
-                  onClick={() => setExpanded(expanded === i ? null : i)}
-                  aria-expanded={expanded === i}
-                >
-                  <div className="flex items-center gap-5 md:gap-8">
-                    <span
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold md:h-14 md:w-14 md:text-base"
-                      style={{
-                        backgroundColor:
-                          expanded === i
-                            ? "var(--accent)"
-                            : "rgba(var(--accent-rgb, 99,102,241), 0.08)",
-                        color:
-                          expanded === i
-                            ? "var(--accent-text)"
-                            : "var(--accent)",
-                        transition: "all 0.3s ease",
-                      }}
-                    >
-                      {step.number}
-                    </span>
-                    <h3
-                      className="text-lg font-semibold md:text-xl"
-                      style={{ color: "var(--text)" }}
-                    >
-                      {step.title}
-                    </h3>
-                  </div>
-                  <motion.div
-                    animate={{ rotate: expanded === i ? 45 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="shrink-0"
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      style={{ color: "var(--muted)" }}
-                    >
-                      <path
-                        d="M12 5v14M5 12h14"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </motion.div>
-                </button>
+        {/* Timeline */}
+        <div ref={containerRef} className="relative mt-16 md:mt-24">
+          {/* Vertical line — hidden on mobile */}
+          <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block" style={{ backgroundColor: "var(--border)" }}>
+            <div
+              ref={lineRef}
+              className="h-full w-full origin-top"
+              style={{ backgroundColor: "var(--text)", transformOrigin: "top" }}
+            />
+          </div>
 
-                <AnimatePresence>
-                  {expanded === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{
-                        height: {
-                          duration: 0.4,
-                          ease: [0.16, 1, 0.3, 1],
-                        },
-                        opacity: { duration: 0.3 },
+          {/* Step cards — alternating left/right */}
+          <div className="flex flex-col gap-12 md:gap-20">
+            {processSteps.map((step, i) => {
+              const Icon = stepIcons[i] || StatsReport;
+              const isLeft = i % 2 === 0;
+
+              return (
+                <div
+                  key={i}
+                  data-step-card
+                  className={`relative flex flex-col md:flex-row md:items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+                >
+                  {/* Card */}
+                  <div className={`w-full md:w-[calc(50%-40px)] ${isLeft ? "md:text-right md:pr-0" : "md:text-left md:pl-0"}`}>
+                    <div
+                      className="rounded-2xl border p-8 md:p-10"
+                      style={{
+                        borderColor: "var(--border)",
+                        backgroundColor: "var(--surface)",
                       }}
-                      className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pl-[4.5rem] md:px-8 md:pb-8 md:pl-[5.5rem]">
-                        <p className="body-text mb-6 max-w-2xl">
-                          {step.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {step.details.map((detail) => (
-                            <span
-                              key={detail}
-                              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider"
-                              style={{
-                                backgroundColor: "rgba(var(--accent-rgb, 99,102,241), 0.06)",
-                                border: "1px solid rgba(var(--accent-rgb, 99,102,241), 0.1)",
-                                color: "var(--muted)",
-                              }}
-                            >
-                              {detail}
-                            </span>
-                          ))}
+                      <div className={`flex items-center gap-4 ${isLeft ? "md:flex-row-reverse" : ""}`}>
+                        <div
+                          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                          style={{ backgroundColor: "var(--bg-alt)" }}
+                        >
+                          <Icon width={24} height={24} strokeWidth={1.5} color="var(--text)" />
+                        </div>
+                        <div className={isLeft ? "md:text-right" : ""}>
+                          <p className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--muted)" }}>
+                            Step {step.number}
+                          </p>
+                          <h3 className="text-lg font-bold md:text-xl" style={{ color: "var(--text)" }}>
+                            {step.title}
+                          </h3>
                         </div>
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </BlurFade>
-          ))}
+
+                      <p className={`body-text mt-5 ${isLeft ? "md:text-right" : ""}`}>
+                        {step.description}
+                      </p>
+
+                      <div className={`mt-5 flex flex-wrap gap-2 ${isLeft ? "md:justify-end" : ""}`}>
+                        {step.details.map((detail) => (
+                          <span
+                            key={detail}
+                            className="rounded-full border px-3 py-1.5 text-[11px] font-medium"
+                            style={{
+                              borderColor: "var(--border)",
+                              color: "var(--muted)",
+                            }}
+                          >
+                            {detail}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Center dot — hidden on mobile */}
+                  <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
+                    <div
+                      data-step-dot
+                      className="flex h-10 w-10 items-center justify-center rounded-full"
+                      style={{ backgroundColor: "var(--text)" }}
+                    >
+                      <span className="text-xs font-bold" style={{ color: "var(--bg)" }}>
+                        {step.number}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Empty spacer for the other side */}
+                  <div className="hidden w-[calc(50%-40px)] md:block" />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Container>
     </section>

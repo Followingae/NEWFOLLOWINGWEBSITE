@@ -13,7 +13,7 @@ export function WorldTransitionOverlay() {
           className="fixed inset-0 z-[9998] origin-top"
           style={{
             backgroundColor:
-              world === "influencer" ? "#5100f3" : "#d3ff02",
+              world === "influencer" ? "#111111" : "#d3ff02",
           }}
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}

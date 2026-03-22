@@ -7,22 +7,20 @@ import { useRef } from "react";
 import { useInView, useScroll, useTransform } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { BlurFade } from "@/components/ui/BlurFade";
-import { Button } from "@/components/ui/Button";
-import { MagneticButton } from "@/components/ui/MagneticButton";
 import { articles } from "@/content/insights";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 const heroGradients = [
   "linear-gradient(160deg, #0a0a0c 0%, #1a1a2e 35%, #0d0d1a 65%, #0a0a0c 100%)",
-  "linear-gradient(160deg, #0a0a0c 0%, #2d1b69 35%, #0d0d1a 65%, #0a0a0c 100%)",
+  "linear-gradient(160deg, #0a0a0c 0%, #1a1a2e 35%, #0d0d1a 65%, #0a0a0c 100%)",
   "linear-gradient(160deg, #0a0a0c 0%, #0d2137 35%, #0a0a1a 65%, #0a0a0c 100%)",
 ];
 
-const imageGradients = [
-  "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
-  "linear-gradient(135deg, #2d1b69 0%, #11001c 50%, #200040 100%)",
-  "linear-gradient(135deg, #0d1117 0%, #1a1e24 50%, #2a2e34 100%)",
-  "linear-gradient(135deg, #1b2838 0%, #171a21 50%, #1e2328 100%)",
+const articleImages = [
+  "/images/fountain-pen.png",
+  "/images/notebook.png",
+  "/images/red-portrait.png",
+  "/images/silhouette-braids.png",
 ];
 
 function hashStr(s: string) {
@@ -55,7 +53,7 @@ export default function ArticlePage() {
     .slice(0, 3);
 
   const heroGrad = heroGradients[hashStr(article.slug) % heroGradients.length];
-  const imgGrad = imageGradients[hashStr(article.slug) % imageGradients.length];
+  const articleImg = articleImages[hashStr(article.slug) % articleImages.length];
 
   return (
     <>
@@ -144,18 +142,10 @@ export default function ArticlePage() {
       <section className="px-4 md:px-8">
         <BlurFade inView>
           <div
-            className="relative mx-auto flex max-w-4xl items-center justify-center overflow-hidden rounded-2xl"
-            style={{
-              height: "clamp(200px, 35vh, 400px)",
-              background: imgGrad,
-            }}
+            className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl"
+            style={{ height: "clamp(200px, 35vh, 400px)" }}
           >
-            <div className="text-center">
-              <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-              </svg>
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/30">ARTICLE HERO IMAGE</p>
-            </div>
+            <img src={articleImg} alt={article.title} className="h-full w-full object-cover" />
           </div>
         </BlurFade>
       </section>
@@ -177,13 +167,8 @@ export default function ArticlePage() {
               {/* Inline visual after 2nd paragraph */}
               {i === 1 && (
                 <BlurFade inView>
-                  <div className="relative my-10 flex aspect-[21/9] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #1b2838 0%, #171a21 50%, #1e2328 100%)" }}>
-                    <div className="text-center">
-                      <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                      </svg>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-white/30">INLINE VISUAL</p>
-                    </div>
+                  <div className="relative my-10 aspect-[21/9] overflow-hidden rounded-xl">
+                    <img src="/images/jewelry-display.png" alt="" className="h-full w-full object-cover" />
                   </div>
                 </BlurFade>
               )}
@@ -197,7 +182,7 @@ export default function ArticlePage() {
         <section
           className="py-section-mobile md:py-section"
           style={{
-            background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+            background: "linear-gradient(160deg, #0b0b0d 0%, #141418 40%, #0b0b0d 100%)",
           }}
         >
           <Container>
@@ -258,53 +243,6 @@ export default function ArticlePage() {
         </section>
       )}
 
-      {/* CTA — dark */}
-      <section
-        className="relative overflow-hidden py-section-mobile md:py-section"
-        style={{
-          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <Container className="relative z-10">
-          <BlurFade inView>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-              <h2
-                style={{
-                  fontSize: "clamp(32px, 4.5vw, 56px)",
-                  fontWeight: 700,
-                  lineHeight: 1.1,
-                  letterSpacing: "-0.03em",
-                  color: "#ffffff",
-                  whiteSpace: "pre-line",
-                }}
-              >
-                {"Ready to put\nthis into practice?"}
-              </h2>
-              <div className="md:text-right">
-                <p
-                  className="mb-8 max-w-md text-[clamp(16px,1.4vw,20px)] leading-relaxed md:ml-auto"
-                  style={{ color: "rgba(255,255,255,0.45)" }}
-                >
-                  We don&apos;t just write about it. We do it. Let&apos;s talk about your
-                  next campaign.
-                </p>
-                <MagneticButton className="md:ml-auto inline-block">
-                  <Button href="/contact" variant="primary" size="lg">
-                    Get in Touch
-                  </Button>
-                </MagneticButton>
-              </div>
-            </div>
-          </BlurFade>
-        </Container>
-      </section>
     </>
   );
 }

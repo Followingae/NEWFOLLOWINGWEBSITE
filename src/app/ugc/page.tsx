@@ -3,33 +3,37 @@
 import { ServicePageHero } from "@/components/sections/ServicePageHero";
 import { Container } from "@/components/ui/Container";
 import { BlurFade } from "@/components/ui/BlurFade";
-import { Button } from "@/components/ui/Button";
-import { MagneticButton } from "@/components/ui/MagneticButton";
+import {
+  EditPencil,
+  ShieldCheck,
+  Copy,
+  ColorFilter,
+} from "iconoir-react";
 
 const sections = [
   {
-    number: "01",
-    title: "Creative direction + scripting",
+    icon: EditPencil,
+    title: "Creative Direction + Scripting",
     description:
-      "We develop performance-tested script frameworks with hook structures, value props, and CTA sequences tailored to each platform.",
+      "Performance-tested script frameworks with hook structures, value props, and CTA sequences tailored to each platform.",
   },
   {
-    number: "02",
-    title: "Creator guidance & QC",
+    icon: ShieldCheck,
+    title: "Creator Guidance & QC",
     description:
-      "Every creator receives detailed direction, reference examples, and brand guardrails. All content goes through quality review before delivery.",
+      "Every creator gets detailed direction, reference examples, and brand guardrails. All content reviewed before delivery.",
   },
   {
-    number: "03",
-    title: "Variants for performance",
+    icon: Copy,
+    title: "Variants for Performance",
     description:
-      "Each piece of content is delivered with hook variants, subtitle options, and format adaptations for A/B testing at scale.",
+      "Each piece delivered with hook variants, subtitle options, and format adaptations for A/B testing at scale.",
   },
   {
-    number: "04",
-    title: "Editing styles",
+    icon: ColorFilter,
+    title: "Editing Styles",
     description:
-      "From raw and authentic to polished and branded — we match editing approach to platform context and campaign objective.",
+      "From raw and authentic to polished and branded — editing approach matched to platform and campaign objective.",
   },
 ];
 
@@ -37,93 +41,74 @@ export default function UGCPage() {
   return (
     <>
       <ServicePageHero
-        kicker="SERVICES / UGC"
-        headline="Real people, real proof — manufactured authenticity is dead"
+        kicker="UGC"
+        headline="Creator-made content, directed by us, built for ads"
       />
 
-      {/* UGC example placeholders */}
-      <section className="py-8 md:py-12">
-        <Container>
-          <BlurFade inView>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              <div className="relative flex aspect-[9/16] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" }}>
-                <div className="text-center">
-                  <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                  </svg>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">UGC EXAMPLE 1</p>
-                </div>
-              </div>
-              <div className="relative flex aspect-[9/16] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #2d1b69 0%, #11001c 50%, #200040 100%)" }}>
-                <div className="text-center">
-                  <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                  </svg>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">UGC EXAMPLE 2</p>
-                </div>
-              </div>
-              <div className="relative flex aspect-[9/16] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #0d1117 0%, #1a1e24 50%, #2a2e34 100%)" }}>
-                <div className="text-center">
-                  <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                  </svg>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">UGC EXAMPLE 3</p>
-                </div>
-              </div>
-              <div className="relative flex aspect-[9/16] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #1b2838 0%, #171a21 50%, #1e2328 100%)" }}>
-                <div className="text-center">
-                  <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                  </svg>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">UGC EXAMPLE 4</p>
-                </div>
-              </div>
-            </div>
-          </BlurFade>
-        </Container>
-      </section>
-
-      {/* 2x2 Grid — glass-morphism bento */}
+      {/* Feature cards with icons */}
       <section className="py-section-mobile md:py-section">
         <Container>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {sections.map((section, i) => (
-              <BlurFade key={i} delay={i * 0.08} inView>
-                <div
-                  className="rounded-xl p-8 md:p-12"
-                  style={{
-                    backgroundColor: "var(--bg-alt)",
-                    border: "1px solid var(--border)",
-                  }}
-                >
-                  <span
-                    className="flex h-14 w-14 items-center justify-center rounded-full text-lg font-bold"
+          <BlurFade inView>
+            <p className="kicker mb-4">HOW IT WORKS</p>
+            <h2 className="headline-2 max-w-xl">
+              <span style={{ fontFamily: "var(--font-sans)" }}>
+                Content that{" "}
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontStyle: "italic",
+                }}
+              >
+                converts
+              </span>
+            </h2>
+          </BlurFade>
+
+          <div className="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-2">
+            {sections.map((section, i) => {
+              const Icon = section.icon;
+              return (
+                <BlurFade key={i} delay={i * 0.06} inView>
+                  <div
+                    className="flex flex-col rounded-2xl border p-8 transition-colors duration-300 hover:border-[var(--text)]/10 md:p-10"
                     style={{
-                      backgroundColor: "rgba(var(--accent-rgb, 99,102,241), 0.08)",
-                      color: "var(--accent)",
+                      borderColor: "var(--border)",
+                      backgroundColor: "var(--surface)",
                     }}
                   >
-                    {section.number}
-                  </span>
-                  <h3
-                    className="mt-6 text-xl font-semibold md:text-2xl"
-                    style={{ color: "var(--text)" }}
-                  >
-                    {section.title}
-                  </h3>
-                  <p className="body-text mt-4">{section.description}</p>
-                </div>
-              </BlurFade>
-            ))}
+                    <div
+                      className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl"
+                      style={{ backgroundColor: "var(--bg-alt)" }}
+                    >
+                      <Icon
+                        width={24}
+                        height={24}
+                        strokeWidth={1.5}
+                        color="var(--text)"
+                      />
+                    </div>
+                    <h3
+                      className="text-lg font-semibold md:text-xl"
+                      style={{ color: "var(--text)" }}
+                    >
+                      {section.title}
+                    </h3>
+                    <p className="body-text mt-3">{section.description}</p>
+                  </div>
+                </BlurFade>
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      {/* Stats band — dark cinematic */}
+      {/* Stats band */}
       <section
         className="py-16 md:py-24"
         style={{
-          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+          background:
+            "linear-gradient(160deg, #0b0b0d 0%, #141418 40%, #0b0b0d 100%)",
         }}
       >
         <Container>
@@ -145,7 +130,7 @@ export default function UGCPage() {
                   <p className="text-[clamp(28px,4vw,44px)] font-bold text-white">
                     {item.stat}
                   </p>
-                  <p className="mt-2 text-[10px] uppercase tracking-widest text-white/40">
+                  <p className="mt-2 text-xs font-medium uppercase tracking-wider text-white/40">
                     {item.label}
                   </p>
                 </div>
@@ -155,52 +140,6 @@ export default function UGCPage() {
         </Container>
       </section>
 
-      {/* CTA — dark */}
-      <section
-        className="relative overflow-hidden py-section-mobile md:py-section"
-        style={{
-          background: "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <Container className="relative z-10">
-          <BlurFade inView>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
-              <h2
-                style={{
-                  fontSize: "clamp(32px, 4.5vw, 56px)",
-                  fontWeight: 700,
-                  lineHeight: 1.1,
-                  letterSpacing: "-0.03em",
-                  color: "#ffffff",
-                  whiteSpace: "pre-line",
-                }}
-              >
-                {"Need proof\nat scale?"}
-              </h2>
-              <div className="md:text-right">
-                <p
-                  className="mb-8 max-w-md text-[clamp(16px,1.4vw,20px)] leading-relaxed md:ml-auto"
-                  style={{ color: "rgba(255,255,255,0.45)" }}
-                >
-                  Creator content that converts — not just content that exists.
-                </p>
-                <MagneticButton className="md:ml-auto inline-block">
-                  <Button href="/contact" variant="primary" size="lg">
-                    Let&apos;s Be Unreasonable
-                  </Button>
-                </MagneticButton>
-              </div>
-            </div>
-          </BlurFade>
-        </Container>
-      </section>
     </>
   );
 }

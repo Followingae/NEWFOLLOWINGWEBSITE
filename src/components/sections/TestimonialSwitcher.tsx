@@ -54,8 +54,8 @@ export function TestimonialSwitcher() {
                   <div
                     className="h-12 w-12 shrink-0 rounded-full"
                     style={{
-                      background: "linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%)",
-                      opacity: 0.2,
+                      background: "linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%)",
+                      opacity: 0.5,
                     }}
                   />
                   <div>
@@ -104,7 +104,7 @@ export function TestimonialSwitcher() {
                   {active === i && (
                     <motion.div
                       className="h-full"
-                      style={{ backgroundColor: "var(--accent)" }}
+                      style={{ backgroundColor: "var(--text)" }}
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 6, ease: "linear" }}

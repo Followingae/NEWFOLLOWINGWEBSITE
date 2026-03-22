@@ -11,7 +11,7 @@ export default function NotFound() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
       style={{
         background:
-          "linear-gradient(160deg, #0a0a0c 0%, #111128 35%, #0d0d1a 65%, #0a0a0c 100%)",
+          "linear-gradient(160deg, #0a0a0c 0%, #141418 35%, #0d0d1a 65%, #0a0a0c 100%)",
       }}
     >
       {/* Dot pattern */}
@@ -56,7 +56,7 @@ export default function NotFound() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          This page doesn&apos;t exist. But your next campaign should.
+          This page doesn&apos;t exist — let&apos;s get you back on track
         </motion.p>
 
         <motion.div

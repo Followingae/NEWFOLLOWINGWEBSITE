@@ -8,13 +8,13 @@ import { BlurFade } from "@/components/ui/BlurFade";
 import { ServicePageHero } from "@/components/sections/ServicePageHero";
 import { articles, insightsTags } from "@/content/insights";
 
-/* Dark gradient backgrounds for article cards */
-const cardGradients = [
-  "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
-  "linear-gradient(135deg, #2d1b69 0%, #11001c 50%, #200040 100%)",
-  "linear-gradient(135deg, #0d1117 0%, #1a1e24 50%, #2a2e34 100%)",
-  "linear-gradient(135deg, #1b2838 0%, #171a21 50%, #1e2328 100%)",
-  "linear-gradient(135deg, #1a0a2e 0%, #0a1628 50%, #0d0d1a 100%)",
+/* Article card images */
+const cardImages = [
+  "/images/fountain-pen.png",
+  "/images/notebook.png",
+  "/images/red-portrait.png",
+  "/images/silhouette-braids.png",
+  "/images/perfume-roses.png",
 ];
 
 export default function InsightsPage() {
@@ -27,9 +27,9 @@ export default function InsightsPage() {
   return (
     <>
       <ServicePageHero
-        kicker="FOLLOWING / INSIGHTS"
-        headline="Thoughts worth stealing"
-        subline="Strategy, craft, and opinions from the team — no fluff, no filler"
+        kicker="INSIGHTS"
+        headline="From the team"
+        subline="Strategy, craft, and perspective on influencer marketing"
       />
 
       <section className="py-section-mobile md:py-section">
@@ -88,23 +88,14 @@ export default function InsightsPage() {
                       border: "1px solid var(--border)",
                     }}
                   >
-                    {/* Image placeholder — dark gradient */}
                     <div className="relative aspect-[16/9] overflow-hidden">
-                      <motion.div
-                        className="flex h-full w-full items-center justify-center"
-                        style={{
-                          background: cardGradients[idx % cardGradients.length],
-                        }}
+                      <motion.img
+                        src={cardImages[idx % cardImages.length]}
+                        alt={article.title}
+                        className="h-full w-full object-cover"
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.5 }}
-                      >
-                        <div className="text-center">
-                          <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                          </svg>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-white/30">ARTICLE THUMBNAIL</p>
-                        </div>
-                      </motion.div>
+                      />
                       {/* Blur mask */}
                       <div
                         className="absolute inset-0"

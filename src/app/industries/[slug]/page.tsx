@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { BlurFade } from "@/components/ui/BlurFade";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { NumberCounter } from "@/components/sections/NumberCounter";
+import { NumberTicker } from "@/components/ui/NumberTicker";
 import { ExpertCard } from "@/components/sections/ExpertCard";
 import { industries } from "@/content/industries";
 import { caseStudies } from "@/content/work";
@@ -51,7 +51,7 @@ export default function IndustryPage() {
           style={{
             y: reduced ? 0 : bgY,
             background:
-              "linear-gradient(160deg, #0a0a0c 0%, #111128 35%, #0d0d1a 65%, #0a0a0c 100%)",
+              "linear-gradient(160deg, #0a0a0c 0%, #141418 35%, #0d0d1a 65%, #0a0a0c 100%)",
           }}
         />
 
@@ -116,13 +116,12 @@ export default function IndustryPage() {
       <section className="py-8 md:py-12">
         <Container>
           <BlurFade inView>
-            <div className="relative flex aspect-[21/9] items-center justify-center overflow-hidden rounded-xl" style={{ background: "linear-gradient(135deg, #2d1b69 0%, #11001c 50%, #200040 100%)" }}>
-              <div className="text-center">
-                <svg className="mx-auto mb-3 h-8 w-8 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v14.25a1.5 1.5 0 001.5 1.5z" />
-                </svg>
-                <p className="text-xs font-semibold uppercase tracking-wider text-white/30">INDUSTRY SHOWCASE</p>
-              </div>
+            <div className="relative aspect-[21/9] overflow-hidden rounded-xl">
+              <img
+                src={`/images/industry/${industry.slug === "food-beverage" ? "food" : industry.slug}.png`}
+                alt={industry.name}
+                className="h-full w-full object-cover"
+              />
             </div>
           </BlurFade>
         </Container>
@@ -152,12 +151,7 @@ export default function IndustryPage() {
                     className="text-[clamp(32px,4vw,48px)] font-bold"
                     style={{ color: "var(--accent)" }}
                   >
-                    <NumberCounter
-                      value={
-                        parseFloat(stat.value.replace(/[^0-9.]/g, "")) || 0
-                      }
-                      suffix={stat.value.replace(/[0-9.]/g, "")}
-                    />
+                    <NumberTicker value={stat.value} />
                   </p>
                   <p className="mt-2 text-sm font-medium text-white/40">
                     {stat.label}
@@ -267,7 +261,7 @@ export default function IndustryPage() {
         className="relative overflow-hidden py-section-mobile md:py-section"
         style={{
           background:
-            "linear-gradient(160deg, #0b0b0d 0%, #111128 40%, #0b0b0d 100%)",
+            "linear-gradient(160deg, #0b0b0d 0%, #141418 40%, #0b0b0d 100%)",
         }}
       >
         <div

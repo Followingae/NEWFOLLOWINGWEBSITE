@@ -3,17 +3,17 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
-const footerLinks = [
+const nav = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/#services" },
+  { label: "Platform", href: "/platform" },
   { label: "Process", href: "/process" },
   { label: "Insights", href: "/insights" },
-  { label: "Manifesto", href: "/manifesto" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
-const socialLinks = [
+const socials = [
   { label: "Instagram", href: "#" },
   { label: "TikTok", href: "#" },
   { label: "LinkedIn", href: "#" },
@@ -21,111 +21,122 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white">
-      {/* Gradient bar top accent */}
-      <div className="gradient-bar w-full" />
-
-      <Container className="py-20 md:py-28">
-        {/* Top section */}
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-[1fr_auto_auto]">
-          {/* Brand */}
-          <div>
-            <Link
-              href="/"
-              className="text-[14px] font-bold uppercase tracking-[0.2em] text-white"
+    <footer data-nav-theme="dark" className="relative bg-[#0a0a0a] text-white">
+      {/* Big CTA band */}
+      <div className="border-b border-white/[0.06]">
+        <Container className="flex flex-col items-center justify-between gap-8 py-20 md:flex-row md:py-28">
+          <h2
+            className="text-center text-[clamp(28px,4vw,48px)] font-bold leading-tight tracking-tight md:text-left"
+          >
+            <span style={{ fontFamily: "var(--font-sans)" }}>Ready to </span>
+            <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+              launch?
+            </span>
+          </h2>
+          <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <a
+              href="/contact"
+              className="inline-flex h-12 items-center rounded-full px-8 text-sm font-semibold transition duration-200 hover:-translate-y-0.5"
+              style={{ backgroundColor: "var(--accent)", color: "var(--accent-text)" }}
             >
-              Following
+              Launch a Campaign
+            </a>
+            <a
+              href="/pricing"
+              className="inline-flex h-12 items-center rounded-full border px-8 text-sm font-medium transition duration-200 hover:-translate-y-0.5 hover:bg-white/10"
+              style={{ borderColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)" }}
+            >
+              Try the Platform
+            </a>
+          </div>
+        </Container>
+      </div>
+
+      {/* Main footer grid */}
+      <Container className="py-16 md:py-20">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-5">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-1">
+            <Link href="/" className="block">
+              <img
+                src="/logo.svg"
+                alt="Following"
+                className="h-10 w-auto"
+                style={{ filter: "invert(1)" }}
+              />
             </Link>
-            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-white/40">
-              We turn creators into culture. End-to-end influencer marketing and
-              production for brands that refuse to blend in.
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/30">
+              End-to-end influencer marketing and production. Dubai and beyond.
             </p>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex flex-col gap-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-white/20">
+          {/* Navigate */}
+          <div>
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/20">
               Navigate
             </p>
-            {footerLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-[13px] font-medium text-white/40 transition-colors duration-200 hover:text-white"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+            <div className="flex flex-col gap-2.5">
+              {nav.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[13px] text-white/35 transition-colors duration-200 hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
-          {/* Social + Contact */}
-          <div className="flex flex-col gap-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-white/20">
+          {/* Connect */}
+          <div>
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/20">
               Connect
             </p>
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[13px] font-medium text-white/40 transition-colors duration-200 hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="mt-4">
+            <div className="flex flex-col gap-2.5">
+              {socials.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13px] text-white/35 transition-colors duration-200 hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
               <a
                 href="mailto:hello@followingagency.com"
-                className="text-[13px] font-medium text-white/40 transition-colors duration-200 hover:text-white"
+                className="mt-2 text-[13px] text-white/35 transition-colors duration-200 hover:text-white"
               >
                 hello@followingagency.com
               </a>
             </div>
           </div>
-        </div>
 
-        {/* Industries */}
-        <div className="mt-16 border-t border-white/[0.08] pt-8">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-white/20 mb-4">
-            Industries
-          </p>
-          <div className="flex flex-wrap gap-4">
-            {["Fashion", "Beauty", "Food & Beverage", "Tech & Apps", "Lifestyle"].map(
-              (industry) => (
-                <Link
-                  key={industry}
-                  href={`/industries/${industry.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
-                  className="text-xs font-medium text-white/30 transition-colors duration-200 hover:text-white/60"
-                >
-                  {industry}
-                </Link>
-              ),
-            )}
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/[0.08] pt-8 text-xs md:flex-row md:items-center">
-          <span className="text-white/30">
-            &copy; {new Date().getFullYear()} Following. All rights reserved.
-          </span>
-          <div className="flex gap-8">
-            <Link
-              href="/contact"
-              className="text-white/30 transition-colors hover:text-white/60"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/contact"
-              className="text-white/30 transition-colors hover:text-white/60"
-            >
-              Terms
-            </Link>
+          {/* Offices */}
+          <div>
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/20">
+              Offices
+            </p>
+            <div className="flex flex-col gap-4">
+              <p className="text-[13px] text-white/50">Dubai, UAE <span className="text-white/20">— HQ</span></p>
+              <p className="text-[13px] text-white/35">Karachi, Pakistan</p>
+            </div>
           </div>
         </div>
       </Container>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/[0.06]">
+        <Container className="flex flex-col items-center justify-between gap-4 py-6 text-[11px] text-white/20 md:flex-row">
+          <span>&copy; {new Date().getFullYear()} Following. All rights reserved.</span>
+          <div className="flex gap-6">
+            <span className="cursor-default">Privacy Policy</span>
+            <span className="cursor-default">Terms</span>
+          </div>
+        </Container>
+      </div>
     </footer>
   );
 }

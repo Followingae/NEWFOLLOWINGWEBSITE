@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We've worked with agencies that promise premium and deliver stock-photo energy. Following gave us brand films that looked cinematic and actually performed on social. That combination shouldn't be this rare.",
+      "We've worked with agencies that promise premium and deliver generic work. Following gave us brand films that looked cinematic and actually performed on social.",
     name: "Marcus Webb",
     role: "Creative Director",
     company: "Meridian Co.",

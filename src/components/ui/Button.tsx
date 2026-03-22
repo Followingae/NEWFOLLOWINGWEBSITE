@@ -15,12 +15,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const base =
   "inline-flex items-center justify-center font-semibold text-sm tracking-wide transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current";
 
-const variants = {
+const variantStyles = {
   primary:
     "bg-accent text-accent-text hover:opacity-90 active:scale-[0.98]",
   secondary:
-    "border text-text hover:bg-text hover:text-bg active:scale-[0.98]",
-  ghost: "text-muted hover:text-text",
+    "border hover:bg-text hover:text-bg active:scale-[0.98]",
+  ghost: "hover:opacity-80",
 };
 
 const sizes = {
@@ -31,17 +31,28 @@ const sizes = {
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { variant = "primary", size = "default", href, children, className, ...props },
+    { variant = "primary", size = "default", href, children, className, style: customStyle, ...props },
     ref,
   ) => {
-    const classes = cn(base, variants[variant], sizes[size], className);
-    const borderStyle = variant === "secondary"
-      ? { borderColor: "var(--border)" }
-      : {};
+    const classes = cn(base, variantStyles[variant], sizes[size], className);
+
+    /* Secondary & ghost use currentColor so they adapt to light/dark contexts automatically */
+    const resolvedStyle: React.CSSProperties = {
+      ...customStyle,
+      ...(variant === "secondary"
+        ? {
+            color: "var(--text)",
+            borderColor: "color-mix(in srgb, var(--text) 25%, transparent)",
+          }
+        : {}),
+      ...(variant === "ghost"
+        ? { color: "var(--muted)" }
+        : {}),
+    };
 
     if (href) {
       return (
-        <Link href={href} className={classes} style={borderStyle}>
+        <Link href={href} className={classes} style={resolvedStyle}>
           <motion.span
             className="inline-flex items-center gap-2"
             whileHover={{ x: 2 }}
@@ -57,7 +68,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <motion.button
         ref={ref}
         className={classes}
-        style={borderStyle}
+        style={resolvedStyle}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         {...(props as React.ComponentProps<typeof motion.button>)}

@@ -29,222 +29,168 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "summer-launch-campaign",
-    title: "Summer Launch Campaign",
-    tags: ["Influencer", "UGC"],
-    industry: "Fashion",
-    impact: "3.2M impressions, 12x ROAS on paid amplification",
-    thumbnail: "/images/work-01.jpg",
-    overview:
-      "A multi-platform influencer campaign designed to turn a seasonal product launch into a cultural moment — not just another ad.",
-    challenge:
-      "The brand had products people liked but nobody talked about. They needed to reach a younger audience with content authentic enough to share and sharp enough to convert.",
-    solution:
-      "We sourced 24 creators across Instagram and TikTok who genuinely fit the brand's aesthetic. Detailed briefs with performance hooks ensured every piece of content was both authentic and built for paid amplification. Full approval and posting cycle managed end-to-end.",
-    results: [
-      { value: "3.2M", label: "Impressions" },
-      { value: "12x", label: "ROAS" },
-      { value: "24", label: "Creators activated" },
-      { value: "48", label: "Reels delivered" },
-    ],
-    deliverables: [
-      "48 Reels",
-      "24 Stories sequences",
-      "12 UGC ad variants",
-      "Campaign report",
-    ],
-    testimonial: {
-      quote:
-        "Following didn't just run a campaign. They made our brand the one people were talking about at brunch.",
-      name: "Sarah Chen",
-      role: "Head of Marketing, Aura Studio",
-    },
-    gallery: [
-      "/images/work-01-a.jpg",
-      "/images/work-01-b.jpg",
-      "/images/work-01-c.jpg",
-    ],
-  },
-  {
-    slug: "brand-film-series",
-    title: "Brand Film Series",
-    tags: ["Productions"],
-    industry: "Lifestyle",
-    impact: "4 hero films, 32 cutdowns, 8M total views",
-    thumbnail: "/images/work-02.jpg",
-    overview:
-      "A cinematic brand film series shot across three locations, designed to look like a campaign but perform like social content.",
-    challenge:
-      "Creating premium brand content that performs natively on social platforms without losing the cinematic quality that defines the brand.",
-    solution:
-      "We developed a modular shoot approach — each location yielded a hero film and 8 social cutdowns with hook variants for A/B testing. Every frame was planned for the feed, not the boardroom.",
-    results: [
-      { value: "8M", label: "Total views" },
-      { value: "4", label: "Hero films" },
-      { value: "32", label: "Social cutdowns" },
-      { value: "3.4x", label: "Engagement vs. benchmark" },
-    ],
-    deliverables: [
-      "4 Hero brand films",
-      "32 Social cutdowns",
-      "Hook variant package",
-      "BTS content",
-    ],
-    testimonial: {
-      quote:
-        "The films looked like they cost five times what they did. And they actually performed on social. That never happens.",
-      name: "Marcus Webb",
-      role: "Creative Director, Meridian Co.",
-    },
-    gallery: [
-      "/images/work-02-a.jpg",
-      "/images/work-02-b.jpg",
-      "/images/work-02-c.jpg",
-    ],
-  },
-  {
-    slug: "ugc-at-scale",
-    title: "UGC at Scale",
-    tags: ["UGC", "Influencer"],
-    industry: "Beauty",
-    impact: "120 assets delivered in 3 weeks, 40% lower CPA",
-    thumbnail: "/images/work-03.jpg",
-    overview:
-      "A high-volume UGC production sprint to fuel performance marketing across Meta and TikTok. Real people. Real proof. At scale.",
-    challenge:
-      "The brand's creative team was stretched thin and needed a rapid influx of performance-ready UGC without sacrificing the authenticity that makes UGC work.",
-    solution:
-      "We onboarded 18 creators with detailed scripts and style guides, ran a quality-first review process, and delivered edited variants within 3 weeks. Every asset was built for the ad platform, not the portfolio.",
-    results: [
-      { value: "120", label: "Assets delivered" },
-      { value: "40%", label: "Lower CPA" },
-      { value: "18", label: "Creators" },
-      { value: "3 wk", label: "Turnaround" },
-    ],
-    deliverables: [
-      "120 UGC assets",
-      "Hook variants",
-      "Subtitle packages",
-      "Performance brief",
-    ],
-    testimonial: {
-      quote:
-        "We went from zero creative pipeline to 120 high-performing assets in three weeks. Following made it look easy.",
-      name: "Priya Kapoor",
-      role: "Performance Lead, Glow Collective",
-    },
-    gallery: [
-      "/images/work-03-a.jpg",
-      "/images/work-03-b.jpg",
-      "/images/work-03-c.jpg",
-    ],
-  },
-  {
-    slug: "always-on-social",
-    title: "Always-On Social",
-    tags: ["SMM"],
+    slug: "mocktail-launch",
+    title: "Mocktail Cans Launch",
+    tags: ["Influencer"],
     industry: "Food & Beverage",
-    impact: "6 months managed, 340% growth in engagement rate",
-    thumbnail: "/images/work-04.jpg",
+    impact: "859K reach, 954K views, 4.1% engagement rate",
+    thumbnail: "/images/work/mocktail-1.jpg",
     overview:
-      "Ongoing social media management with monthly content systems and performance iteration. Not a calendar — a machine.",
+      "Launch campaign for a leading UAE fresh juice brand's new mocktail can range. Paid influencer reels across Instagram driving awareness and trial.",
     challenge:
-      "Inconsistent posting cadence and no creative direction was diluting the brand's social presence. Their feed looked like it was managed by committee.",
+      "New product category for a brand known for fresh juice. Needed to introduce canned mocktails to a health-conscious UAE audience without diluting the brand's fresh, premium positioning.",
     solution:
-      "We built a monthly content system with batch production days, creative direction frameworks, and weekly reporting cycles. Every post serves a purpose in the larger content architecture.",
+      "Sourced 7 creators across food, lifestyle, and wellness verticals. Each creator produced Instagram Reels showing natural moments with the product. Content was performance-tracked in real time through our platform.",
     results: [
-      { value: "340%", label: "Engagement growth" },
-      { value: "6 mo", label: "Managed" },
-      { value: "2.1x", label: "Follower growth rate" },
-      { value: "89%", label: "Content consistency score" },
+      { value: "859K", label: "Reach" },
+      { value: "954K", label: "Views" },
+      { value: "4.1%", label: "Engagement rate" },
+      { value: "7", label: "Creators" },
     ],
     deliverables: [
-      "Monthly content calendars",
-      "Batch production",
-      "Weekly reports",
-      "Quarterly strategy reviews",
+      "8 Instagram Reels",
+      "Creator sourcing & vetting",
+      "Creative briefs",
+      "Real-time campaign tracking",
+      "Post-campaign report",
     ],
     gallery: [
-      "/images/work-04-a.jpg",
-      "/images/work-04-b.jpg",
-      "/images/work-04-c.jpg",
+      "/images/work/mocktail-1.jpg",
+      "/images/work/mocktail-2.jpg",
+      "/images/work/mocktail-3.jpg",
     ],
   },
   {
-    slug: "product-shoot-system",
-    title: "Product Shoot System",
-    tags: ["Productions", "UGC"],
-    industry: "Beauty",
-    impact: "200+ assets from a single 2-day shoot",
-    thumbnail: "/images/work-05.jpg",
+    slug: "frozen-dessert-campaign",
+    title: "Frozen Dessert Launch",
+    tags: ["Influencer"],
+    industry: "Food & Beverage",
+    impact: "621K reach, 2.1% ER, AED 0.07 cost per view",
+    thumbnail: "/images/work/frozen-1.jpg",
     overview:
-      "An efficient product photography and video system designed to maximize output from a single production window. Every frame, planned.",
+      "Influencer campaign to launch the UAE's first artisanal frozen dessert range from a major fresh food brand. Mix of macro and micro creators driving trial and conversation.",
     challenge:
-      "The brand needed a large volume of product content across multiple formats but had a limited production budget and an even more limited timeline.",
+      "Launching an entirely new product line in a competitive frozen dessert market. The brand needed authentic creator content that felt native to the feed, not like an ad.",
     solution:
-      "We designed a modular set system with pre-planned shot lists, allowing rapid transitions between setups and formats. One shoot, 200+ assets, zero wasted time.",
+      "Selected 7 creators across food review, family, and lifestyle verticals. Reels focused on unboxing, first-taste reactions, and family sharing moments. All content reviewed and approved through our platform before posting.",
     results: [
-      { value: "200+", label: "Assets produced" },
-      { value: "2 day", label: "Shoot duration" },
-      { value: "6", label: "Content formats" },
-      { value: "3 mo", label: "Content runway" },
+      { value: "621K", label: "Reach" },
+      { value: "690K", label: "Views" },
+      { value: "2.1%", label: "Engagement rate" },
+      { value: "0.07", label: "CPV (AED)" },
     ],
     deliverables: [
-      "Product photography",
-      "Product video",
-      "Social cutdowns",
-      "E-commerce assets",
+      "7 Instagram Reels",
+      "Creator sourcing & vetting",
+      "Creative direction",
+      "Campaign analytics",
+      "Post-campaign report",
     ],
     gallery: [
-      "/images/work-05-a.jpg",
-      "/images/work-05-b.jpg",
-      "/images/work-05-c.jpg",
+      "/images/work/frozen-1.jpg",
+      "/images/work/frozen-2.jpg",
+      "/images/work/frozen-3.jpg",
     ],
   },
   {
-    slug: "event-content-package",
-    title: "Event Content Package",
-    tags: ["Productions", "Influencer"],
+    slug: "gaming-collab-pr",
+    title: "Gaming x F&B Collab",
+    tags: ["Influencer"],
+    industry: "Food & Beverage",
+    impact: "2M+ reach, 5.5M impressions, 89% authentic audience",
+    thumbnail: "/images/work/gaming-1.jpg",
+    overview:
+      "PR-driven influencer campaign for a cross-brand collaboration between a major UAE food brand and a global gaming console. Premium unboxing experience with lifestyle-driven story and reel content.",
+    challenge:
+      "Merging two very different brand worlds — fresh food and gaming — into content that felt authentic and drove buzz without confusing either audience.",
+    solution:
+      "Enrolled 12 creators across food, gaming, and lifestyle verticals. Each received a limited-edition PR box. Content focused on unboxing moments and natural reactions. Micro-influencers outperformed macro by 3.8x in engagement.",
+    results: [
+      { value: "2M+", label: "Verified reach" },
+      { value: "5.5M", label: "Impressions" },
+      { value: "12", label: "Creators" },
+      { value: "89%", label: "Authentic audience" },
+    ],
+    deliverables: [
+      "60+ Story frames",
+      "2 Instagram Reels",
+      "PR box design direction",
+      "Creator sourcing & vetting",
+      "Full campaign report with audience quality analysis",
+    ],
+    gallery: [
+      "/images/work/gaming-1.jpg",
+      "/images/work/gaming-2.jpg",
+      "/images/work/gaming-3.jpg",
+    ],
+  },
+  {
+    slug: "fuel-delivery-giveaway",
+    title: "On-Demand Fuel Giveaway",
+    tags: ["Influencer"],
     industry: "Tech",
-    impact: "Real-time social coverage reaching 1.8M accounts",
-    thumbnail: "/images/work-06.jpg",
+    impact: "8,500 giveaway enrolments via micro-influencers",
+    thumbnail: "/images/work/fuel-1.jpg",
     overview:
-      "Full event coverage combining production crew and influencer activations. Premium quality, same-day delivery, maximum social velocity.",
+      "Micro-influencer giveaway campaign for a leading UAE on-demand fuel delivery app. Goal was driving app installs and giveaway participation through trusted, niche creators.",
     challenge:
-      "Capturing a live event in a way that feels premium but posts natively on social — in real time. No polishing in post. No 'we'll send the edit next week.'",
+      "The brand needed real enrolments, not just impressions. Standard influencer content wasn't converting. They needed creators whose audiences would actually download an app and enter a giveaway.",
     solution:
-      "We deployed a 3-person production crew alongside 6 invited creators, with a real-time editing workflow for same-day posting. The event went live and so did the content.",
+      "We sourced micro-influencers with high engagement and verified UAE-based audiences. Each creator ran a giveaway mechanic tied to app download. All tracked through our platform.",
     results: [
-      { value: "1.8M", label: "Accounts reached" },
-      { value: "6", label: "Creator activations" },
-      { value: "Same day", label: "Content turnaround" },
-      { value: "24", label: "Assets published live" },
+      { value: "8,500", label: "Giveaway enrolments" },
+      { value: "Micro", label: "Influencer tier" },
+      { value: "UAE", label: "Geo-targeted" },
+      { value: "App", label: "Install-driven" },
     ],
     deliverables: [
-      "Same-day Reels",
-      "Event recap film",
-      "Creator stories",
-      "Photo gallery",
+      "Influencer sourcing",
+      "Giveaway mechanic design",
+      "Content ideation",
+      "Campaign reporting",
     ],
     gallery: [
-      "/images/work-06-a.jpg",
-      "/images/work-06-b.jpg",
-      "/images/work-06-c.jpg",
+      "/images/work/fuel-1.jpg",
+      "/images/work/fuel-2.jpg",
+      "/images/work/fuel-3.jpg",
+    ],
+  },
+  {
+    slug: "perfume-brand-ambassador",
+    title: "Luxury Perfume Ambassador",
+    tags: ["Influencer"],
+    industry: "Beauty",
+    impact: "6%+ engagement, 3M+ reach, long-term brand ambassadorship",
+    thumbnail: "/images/work/perfume-1.jpg",
+    overview:
+      "Long-term influencer ambassadorship for a UAE-based luxury perfume house. Ongoing content creation, PR deliveries, and usage rights management over multiple months.",
+    challenge:
+      "The brand needed more than one-off posts. They wanted a genuine, long-term association with a creator whose audience trusted her beauty recommendations.",
+    solution:
+      "We identified and secured a single high-affinity creator for a multi-month ambassadorship. Managed all content ideation, production, PR deliveries, reporting, and usage rights licensing.",
+    results: [
+      { value: "3M+", label: "Total reach" },
+      { value: "6%+", label: "Engagement rate" },
+      { value: "Long-term", label: "Ambassadorship" },
+      { value: "Multi-month", label: "Duration" },
+    ],
+    deliverables: [
+      "Influencer sourcing & securing",
+      "Content ideation",
+      "Content production",
+      "Usage rights management",
+      "PR deliveries",
+      "Ongoing reporting",
+    ],
+    gallery: [
+      "/images/work/perfume-1.jpg",
+      "/images/work/perfume-2.jpg",
+      "/images/work/perfume-3.jpg",
     ],
   },
 ];
 
+/* Only show filters for work types that actually have case studies */
 export const filterOptions: ServiceTag[] = [
-  "Influencer",
-  "Productions",
-  "UGC",
-  "SMM",
-];
-
-export const industryFilterOptions: IndustryTag[] = [
-  "Fashion",
-  "Beauty",
-  "Food & Beverage",
-  "Tech",
-  "Lifestyle",
+  ...new Set(caseStudies.flatMap((s) => s.tags)),
 ];

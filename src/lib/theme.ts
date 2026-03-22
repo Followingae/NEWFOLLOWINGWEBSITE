@@ -19,7 +19,7 @@ export const lightTokens: ThemeTokens = {
   muted: "#5B5B63",
   border: "rgba(10,10,12,.12)",
   accent: "#d3ff02",
-  accentSecondary: "#5100f3",
+  accentSecondary: "#111111",
   accentText: "#0B0B0D",
 };
 
@@ -30,7 +30,7 @@ export const darkTokens: ThemeTokens = {
   muted: "#9C9CA4",
   border: "rgba(246,243,239,.12)",
   accent: "#d3ff02",
-  accentSecondary: "#5100f3",
+  accentSecondary: "#111111",
   accentText: "#0B0B0D",
 };
 
@@ -40,12 +40,12 @@ export const worldAccents: Record<
 > = {
   influencer: {
     accent: "#d3ff02",
-    accentSecondary: "#5100f3",
+    accentSecondary: "#111111",
     accentText: "#0B0B0D",
   },
   production: {
-    accent: "#5100f3",
-    accentSecondary: "#d3ff02",
-    accentText: "#FFFFFF",
+    accent: "#d3ff02",
+    accentSecondary: "#111111",
+    accentText: "#0B0B0D",
   },
 };
