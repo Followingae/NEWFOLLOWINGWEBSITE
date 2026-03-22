@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { WorldProvider } from "@/components/world/WorldProvider";
 import { WorldTransitionOverlay } from "@/components/world/WorldTransitionOverlay";
 import { NavBar } from "@/components/layout/NavBar";
 import { Footer } from "@/components/layout/Footer";
 import { LenisWrapper } from "@/components/layout/LenisWrapper";
-import { WhatsAppButton } from "@/components/sections/WhatsAppButton";
 import { SchemaMarkup } from "@/components/seo/SchemaMarkup";
 
-export const viewport = {
-  themeColor: "#0a0a0a",
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#0a0a0a" },
+  ],
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,

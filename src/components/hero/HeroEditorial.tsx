@@ -110,10 +110,10 @@ export function HeroEditorial() {
                   <span
                     className="block"
                     style={{
-                      fontSize: "clamp(36px, 7vw, 100px)",
-                      lineHeight: 1.0,
-                      letterSpacing: "-0.035em",
-                      fontWeight: 700,
+                      fontSize: "clamp(42px, 8vw, 100px)",
+                      lineHeight: 1.05,
+                      letterSpacing: "-0.03em",
+                      fontWeight: 800,
                       color: "#ffffff",
                       fontFamily:
                         i === 1 ? "var(--font-serif)" : "var(--font-sans)",
@@ -126,10 +126,10 @@ export function HeroEditorial() {
                   <motion.span
                     className="block"
                     style={{
-                      fontSize: "clamp(36px, 7vw, 100px)",
-                      lineHeight: 1.0,
-                      letterSpacing: "-0.035em",
-                      fontWeight: 700,
+                      fontSize: "clamp(42px, 8vw, 100px)",
+                      lineHeight: 1.05,
+                      letterSpacing: "-0.03em",
+                      fontWeight: 800,
                       color: "#ffffff",
                       fontFamily:
                         i === 1 ? "var(--font-serif)" : "var(--font-sans)",
