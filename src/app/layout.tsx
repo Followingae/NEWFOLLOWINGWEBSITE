@@ -76,7 +76,6 @@ export default function RootLayout({
             <NavBar />
             <main>{children}</main>
             <Footer />
-            <WhatsAppButton />
           </LenisWrapper>
         </WorldProvider>
       </body>
