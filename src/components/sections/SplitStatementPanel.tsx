@@ -13,15 +13,18 @@ const stats = [
 const pillars = [
   {
     title: "End-to-end",
-    description: "Strategy, sourcing, production, publishing, reporting. One team handles everything.",
+    description:
+      "Strategy, sourcing, production, publishing, reporting. One team handles everything.",
   },
   {
     title: "Creator-matched",
-    description: "Matched by audience quality and brand fit. Not follower count.",
+    description:
+      "Matched by audience quality and brand fit. Not follower count.",
   },
   {
     title: "Ad-ready assets",
-    description: "Every deliverable formatted for paid and organic from day one.",
+    description:
+      "Every deliverable formatted for paid and organic from day one.",
   },
 ];
 
@@ -31,13 +34,19 @@ export function SplitStatementPanel() {
       <Container>
         {/* Stats row */}
         <BlurFade inView>
-          <div className="grid grid-cols-3 gap-4 md:gap-6">
+          <div className="mx-auto grid max-w-3xl grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
             {stats.map((stat, i) => (
               <div key={i} className="text-center">
-                <div className="headline-2 font-bold" style={{ color: "var(--text)" }}>
+                <div
+                  className="text-[clamp(36px,5vw,56px)] font-bold leading-none"
+                  style={{ color: "var(--text)" }}
+                >
                   <NumberTicker value={stat.value} />
                 </div>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wider" style={{ color: "var(--muted)" }}>
+                <p
+                  className="mt-2 text-[11px] font-medium uppercase tracking-wider sm:mt-3"
+                  style={{ color: "var(--muted)" }}
+                >
                   {stat.label}
                 </p>
               </div>
@@ -46,17 +55,26 @@ export function SplitStatementPanel() {
         </BlurFade>
 
         {/* Pillars row */}
-        <div className="mt-14 grid grid-cols-1 gap-4 md:mt-20 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 md:mt-20 md:grid-cols-3">
           {pillars.map((pillar, i) => (
             <BlurFade key={i} delay={i * 0.08} inView>
               <div
-                className="rounded-2xl border p-8 md:p-10"
-                style={{ borderColor: "var(--border)", backgroundColor: "var(--surface)" }}
+                className="rounded-2xl border p-7 md:p-10"
+                style={{
+                  borderColor: "var(--border)",
+                  backgroundColor: "var(--surface)",
+                }}
               >
-                <h3 className="text-lg font-bold md:text-xl" style={{ color: "var(--text)" }}>
+                <h3
+                  className="text-base font-bold md:text-lg"
+                  style={{ color: "var(--text)" }}
+                >
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
+                <p
+                  className="mt-2 text-sm leading-relaxed"
+                  style={{ color: "var(--muted)" }}
+                >
                   {pillar.description}
                 </p>
               </div>
