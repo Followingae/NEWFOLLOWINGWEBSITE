@@ -110,7 +110,7 @@ export function HeroEditorial() {
                   <span
                     className="block"
                     style={{
-                      fontSize: "clamp(42px, 8vw, 100px)",
+                      fontSize: "clamp(48px, 9vw, 100px)",
                       lineHeight: 1.05,
                       letterSpacing: "-0.03em",
                       fontWeight: 800,
@@ -126,7 +126,7 @@ export function HeroEditorial() {
                   <motion.span
                     className="block"
                     style={{
-                      fontSize: "clamp(42px, 8vw, 100px)",
+                      fontSize: "clamp(48px, 9vw, 100px)",
                       lineHeight: 1.05,
                       letterSpacing: "-0.03em",
                       fontWeight: 800,

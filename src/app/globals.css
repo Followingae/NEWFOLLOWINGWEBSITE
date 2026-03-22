@@ -276,19 +276,26 @@ html.lenis, html.lenis body { height: auto; }
   100% { transform: translateX(100%); }
 }
 
-/* ─── Navbar logo — adapts to dark/light context ─── */
+/* ─── Navbar — adapts logo + icon to dark/light sections ─── */
 [data-nav-dark="true"] .nav-logo {
-  filter: invert(1);
+  filter: invert(1) !important;
 }
 [data-nav-dark="false"] .nav-logo {
-  filter: invert(0);
+  filter: invert(0) !important;
 }
-
 [data-nav-dark="true"] .nav-icon {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 [data-nav-dark="false"] .nav-icon {
-  color: #111111;
+  color: #111111 !important;
+}
+
+/* Mobile nav scrolled bg — adapts to section */
+[data-nav-dark="true"] .mobile-nav-scrolled {
+  background: rgba(10, 10, 10, 0.8) !important;
+}
+[data-nav-dark="false"] .mobile-nav-scrolled {
+  background: rgba(255, 255, 255, 0.85) !important;
 }
 
 /* ─── Glass Button ─── */

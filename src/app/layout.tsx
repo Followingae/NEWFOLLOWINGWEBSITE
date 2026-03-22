@@ -8,10 +8,8 @@ import { LenisWrapper } from "@/components/layout/LenisWrapper";
 import { SchemaMarkup } from "@/components/seo/SchemaMarkup";
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-    { media: "(prefers-color-scheme: light)", color: "#0a0a0a" },
-  ],
+  themeColor: "#0a0a0a",
+  colorScheme: "dark light",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -59,6 +57,8 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light" data-world="influencer">
       <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

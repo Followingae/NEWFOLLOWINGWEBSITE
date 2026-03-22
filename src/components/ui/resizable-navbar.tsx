@@ -218,7 +218,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       transition={{ type: "spring", stiffness: 200, damping: 50 }}
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-4 py-2 lg:hidden",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        visible && "mobile-nav-scrolled",
         className,
       )}
     >
