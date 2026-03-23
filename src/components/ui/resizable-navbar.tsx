@@ -113,12 +113,19 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
     <div
       data-nav-scrolled={visible ? "true" : "false"}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full px-6 py-2 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] lg:flex",
-        visible
-          ? "max-w-[780px] bg-white/80 shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04)] backdrop-blur-xl"
-          : "max-w-7xl bg-transparent shadow-none backdrop-blur-none",
+        "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full px-6 py-2 lg:flex",
         className,
       )}
+      style={{
+        maxWidth: visible ? 780 : 1280,
+        background: visible ? "rgba(255,255,255,0.8)" : "transparent",
+        backdropFilter: visible ? "blur(20px)" : "none",
+        WebkitBackdropFilter: visible ? "blur(20px)" : "none",
+        boxShadow: visible
+          ? "0 0 24px rgba(34,42,53,0.06), 0 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(34,42,53,0.04)"
+          : "none",
+        transition: "max-width 0.8s cubic-bezier(0.22,1,0.36,1), background 0.5s cubic-bezier(0.22,1,0.36,1) 0.1s, backdrop-filter 0.5s cubic-bezier(0.22,1,0.36,1) 0.1s, box-shadow 0.6s cubic-bezier(0.22,1,0.36,1) 0.15s",
+      }}
     >
       {children}
     </div>
@@ -213,12 +220,22 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <div
       className={cn(
-        "relative z-50 mx-auto flex flex-col items-center justify-between px-4 py-2 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] lg:hidden",
-        visible
-          ? "w-[92%] rounded-xl mobile-nav-scrolled shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05)] backdrop-blur-xl"
-          : "w-full max-w-[calc(100vw-2rem)] rounded-full bg-transparent shadow-none backdrop-blur-none",
+        "relative z-50 mx-auto flex flex-col items-center justify-between px-4 py-2 lg:hidden",
+        visible ? "mobile-nav-scrolled" : "",
         className,
       )}
+      style={{
+        width: visible ? "92%" : "100%",
+        maxWidth: visible ? undefined : "calc(100vw - 2rem)",
+        borderRadius: visible ? 12 : 9999,
+        background: visible ? undefined : "transparent",
+        boxShadow: visible
+          ? "0 0 24px rgba(34,42,53,0.06), 0 1px 1px rgba(0,0,0,0.05)"
+          : "none",
+        backdropFilter: visible ? "blur(20px)" : "none",
+        WebkitBackdropFilter: visible ? "blur(20px)" : "none",
+        transition: "width 0.8s cubic-bezier(0.22,1,0.36,1), border-radius 0.8s cubic-bezier(0.22,1,0.36,1), background 0.5s cubic-bezier(0.22,1,0.36,1) 0.1s, backdrop-filter 0.5s ease 0.1s, box-shadow 0.6s ease 0.15s",
+      }}
     >
       {children}
     </div>
