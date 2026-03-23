@@ -110,23 +110,18 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
-    <motion.div data-nav-scrolled={visible ? "true" : "false"}
-      animate={{
-        backdropFilter: visible ? "blur(20px)" : "none",
-        boxShadow: visible
-          ? "0 0 24px rgba(34,42,53,0.06), 0 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(34,42,53,0.04), 0 0 4px rgba(34,42,53,0.08)"
-          : "none",
-        width: visible ? "min(780px, 92%)" : "100%",
-      }}
-      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+    <div
+      data-nav-scrolled={visible ? "true" : "false"}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-6 py-2 lg:flex",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full px-6 py-2 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] lg:flex",
+        visible
+          ? "max-w-[780px] bg-white/80 shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04)] backdrop-blur-xl"
+          : "max-w-7xl bg-transparent shadow-none backdrop-blur-none",
         className,
       )}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
@@ -216,25 +211,17 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
-    <motion.div
-      animate={{
-        backdropFilter: visible ? "blur(20px)" : "none",
-        boxShadow: visible
-          ? "0 0 24px rgba(34,42,53,0.06), 0 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(34,42,53,0.04)"
-          : "none",
-        width: visible ? "92%" : "100%",
-        borderRadius: visible ? "12px" : "9999px",
-        y: visible ? 8 : 0,
-      }}
-      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+    <div
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-4 py-2 lg:hidden",
-        visible && "mobile-nav-scrolled",
+        "relative z-50 mx-auto flex flex-col items-center justify-between px-4 py-2 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] lg:hidden",
+        visible
+          ? "w-[92%] rounded-xl mobile-nav-scrolled shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05)] backdrop-blur-xl"
+          : "w-full max-w-[calc(100vw-2rem)] rounded-full bg-transparent shadow-none backdrop-blur-none",
         className,
       )}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
