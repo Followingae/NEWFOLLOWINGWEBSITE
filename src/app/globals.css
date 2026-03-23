@@ -277,6 +277,12 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ─── Navbar — adapts logo + icon to dark/light sections ─── */
+.nav-logo {
+  transition: filter 0.5s ease !important;
+}
+.nav-icon {
+  transition: color 0.5s ease !important;
+}
 [data-nav-dark="true"] .nav-logo {
   filter: invert(1) !important;
 }

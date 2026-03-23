@@ -47,35 +47,45 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   const [visible, setVisible] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
-  /* Single scroll handler — no Framer Motion scroll, no double listeners */
+  /* Single scroll handler with rAF throttle for smooth performance */
   useEffect(() => {
     let darkSections: NodeListOf<Element> | null = null;
     let prevVisible = false;
     let prevDark = true;
+    let ticking = false;
 
-    const onScroll = () => {
+    const update = () => {
       const scrolled = window.scrollY > 100;
       if (scrolled !== prevVisible) {
         prevVisible = scrolled;
         setVisible(scrolled);
       }
 
-      if (scrolled) {
-        if (prevDark !== false) { prevDark = false; setIsDark(false); }
-        return;
-      }
-
+      /* Always check dark sections — not just when unscrolled */
       if (!darkSections) darkSections = document.querySelectorAll('[data-nav-theme="dark"]');
+
       let overDark = false;
-      for (const section of darkSections) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < 60 && rect.bottom > 60) { overDark = true; break; }
+      if (!scrolled) {
+        for (const section of darkSections) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < 60 && rect.bottom > 60) { overDark = true; break; }
+        }
       }
+      /* When scrolled, overDark stays false (white bg = dark logo) */
+
       if (overDark !== prevDark) { prevDark = overDark; setIsDark(overDark); }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    update();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -104,11 +114,11 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       animate={{
         backdropFilter: visible ? "blur(20px)" : "none",
         boxShadow: visible
-          ? "0 0 24px rgba(34,42,53,0.06), 0 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(34,42,53,0.04), 0 0 4px rgba(34,42,53,0.08), 0 16px 68px rgba(47,48,55,0.05), 0 1px 0 rgba(255,255,255,0.1) inset"
+          ? "0 0 24px rgba(34,42,53,0.06), 0 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(34,42,53,0.04), 0 0 4px rgba(34,42,53,0.08)"
           : "none",
         width: visible ? "min(780px, 92%)" : "100%",
       }}
-      transition={{ type: "spring", stiffness: 200, damping: 50 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-6 py-2 lg:flex",
         visible && "bg-white/80 dark:bg-neutral-950/80",
@@ -216,7 +226,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         borderRadius: visible ? "12px" : "9999px",
         y: visible ? 8 : 0,
       }}
-      transition={{ type: "spring", stiffness: 200, damping: 50 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-4 py-2 lg:hidden",
         visible && "mobile-nav-scrolled",
