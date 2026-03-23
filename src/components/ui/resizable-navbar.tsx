@@ -4,8 +4,6 @@ import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
   motion,
   AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
 } from "framer-motion";
 import React, { useRef, useState, useEffect } from "react";
 
@@ -46,37 +44,40 @@ interface MobileNavMenuProps {
 
 export const Navbar = ({ children, className }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
   const [visible, setVisible] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setVisible((prev) => {
-      const next = latest > 100;
-      return prev === next ? prev : next;
-    });
-  });
-
-  /* Detect if nav is over a dark section — single scroll handler, cached query */
+  /* Single scroll handler — no Framer Motion scroll, no double listeners */
   useEffect(() => {
     let darkSections: NodeListOf<Element> | null = null;
-    const check = () => {
+    let prevVisible = false;
+    let prevDark = true;
+
+    const onScroll = () => {
+      const scrolled = window.scrollY > 100;
+      if (scrolled !== prevVisible) {
+        prevVisible = scrolled;
+        setVisible(scrolled);
+      }
+
+      if (scrolled) {
+        if (prevDark !== false) { prevDark = false; setIsDark(false); }
+        return;
+      }
+
       if (!darkSections) darkSections = document.querySelectorAll('[data-nav-theme="dark"]');
-      if (visible) { setIsDark((p) => p === false ? p : false); return; }
       let overDark = false;
       for (const section of darkSections) {
         const rect = section.getBoundingClientRect();
         if (rect.top < 60 && rect.bottom > 60) { overDark = true; break; }
       }
-      setIsDark((prev) => prev === overDark ? prev : overDark);
+      if (overDark !== prevDark) { prevDark = overDark; setIsDark(overDark); }
     };
-    window.addEventListener("scroll", check, { passive: true });
-    check();
-    return () => window.removeEventListener("scroll", check);
-  }, [visible]);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.div

@@ -8,15 +8,13 @@ const nav = [
   { label: "Services", href: "/#services" },
   { label: "Platform", href: "/platform" },
   { label: "Process", href: "/process" },
-  { label: "Insights", href: "/insights" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
 const socials = [
-  { label: "Instagram", href: "#" },
-  { label: "TikTok", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { label: "Instagram", href: "https://instagram.com/followingsocials" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/followingsocials/" },
 ];
 
 export function Footer() {
@@ -106,10 +104,10 @@ export function Footer() {
                 </a>
               ))}
               <a
-                href="mailto:hello@followingagency.com"
+                href="mailto:hello@following.ae"
                 className="mt-2 text-[13px] text-white/35 transition-colors duration-200 hover:text-white"
               >
-                hello@followingagency.com
+                hello@following.ae
               </a>
             </div>
           </div>

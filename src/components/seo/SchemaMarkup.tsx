@@ -6,7 +6,7 @@ export function SchemaMarkup() {
     description:
       "End-to-end influencer marketing and production agency for brands that refuse to blend in.",
     url: "https://followingagency.com",
-    email: "hello@followingagency.com",
+    email: "hello@following.ae",
     sameAs: [],
     hasOfferCatalog: {
       "@type": "OfferCatalog",

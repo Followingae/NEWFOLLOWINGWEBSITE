@@ -253,7 +253,7 @@ export default function IndustryPage() {
         name="Following Team"
         role="Industry Specialists"
         topic={industry.name}
-        email="hello@followingagency.com"
+        email="hello@following.ae"
       />
 
       {/* CTA — dark */}

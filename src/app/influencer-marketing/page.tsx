@@ -208,7 +208,7 @@ export default function InfluencerMarketingPage() {
         name="Following Team"
         role="Campaign Strategists"
         topic="influencer marketing"
-        email="hello@followingagency.com"
+        email="hello@following.ae"
       />
 
     </>
