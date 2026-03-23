@@ -42,7 +42,13 @@ export default function ContactConfirmation({
         <Container style={heroContainer}>
           <Section style={heroInner}>
             {/* Logo */}
-            <Text style={logoText}>following</Text>
+            <Img
+              src="https://following.ae/images/logo-white.png"
+              alt="Following"
+              width="140"
+              height="auto"
+              style={logoImg}
+            />
 
             {/* Hero headline */}
             <Heading as="h1" style={heroHeadline}>
@@ -94,6 +100,12 @@ export default function ContactConfirmation({
             <Row>
               <Column style={workCard}>
                 <Link href="https://following.ae/work/mocktail-launch" style={workLink}>
+                  <Img
+                    src="https://following.ae/images/work/mocktail-1.jpg"
+                    alt="Mocktail Cans Launch"
+                    width="100%"
+                    style={workImg}
+                  />
                   <Text style={workTitle}>Mocktail Cans Launch</Text>
                   <Text style={workStat}>859K reach · 4.1% ER</Text>
                 </Link>
@@ -101,6 +113,12 @@ export default function ContactConfirmation({
               <Column style={workCardSpacing} />
               <Column style={workCard}>
                 <Link href="https://following.ae/work/gaming-collab-pr" style={workLink}>
+                  <Img
+                    src="https://following.ae/images/work/gaming-1.jpg"
+                    alt="Gaming x F&B Collab"
+                    width="100%"
+                    style={workImg}
+                  />
                   <Text style={workTitle}>Gaming x F&B Collab</Text>
                   <Text style={workStat}>2M+ reach · 12 creators</Text>
                 </Link>
@@ -119,7 +137,13 @@ export default function ContactConfirmation({
         <Container style={footerContainer}>
           <Hr style={footerHr} />
 
-          <Text style={footerBrand}>following</Text>
+          <Img
+            src="https://following.ae/images/logo-dark.png"
+            alt="Following"
+            width="100"
+            height="auto"
+            style={{ margin: "0 auto 8px", display: "block" as const }}
+          />
 
           <Text style={footerText}>
             Influencer Marketing Agency · Dubai, UAE
@@ -168,13 +192,9 @@ const heroInner = {
   textAlign: "center" as const,
 };
 
-const logoText = {
-  fontSize: "13px",
-  fontWeight: 800 as const,
-  letterSpacing: "0.2em",
-  textTransform: "uppercase" as const,
-  color: "rgba(255,255,255,0.3)",
-  margin: "0 0 40px",
+const logoImg = {
+  margin: "0 auto 40px",
+  display: "block" as const,
 };
 
 const heroHeadline = {
@@ -279,6 +299,12 @@ const workCard = {
 
 const workCardSpacing = {
   width: "4%",
+};
+
+const workImg = {
+  borderRadius: "8px",
+  marginBottom: "12px",
+  display: "block" as const,
 };
 
 const workLink = {
